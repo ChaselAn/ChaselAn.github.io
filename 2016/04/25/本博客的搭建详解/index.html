@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_5.png">
 <meta property="og:image" content="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_6.png">
 <meta property="og:image" content="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_8.png">
-<meta property="og:updated_time" content="2016-04-26T01:16:10.000Z">
+<meta property="og:updated_time" content="2016-04-26T01:24:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本博客的搭建详解">
 <meta name="twitter:description" content="此文记录本博客的搭建过程。本博客的搭建主要参考cnfeat大神的如何搭建一个独立博客——简明Github Pages与Hexo教程。此博客采用的是Github Pages+Hexo搭建，至于什么是Github Pages和Hexo,以及这两个的优缺点我就在这不多说了，请各位看官自行百度，那儿的解释比较专业。话不多说，开始搭建。
@@ -332,9 +332,12 @@
 <h3 id="配置DNS"><a href="#配置DNS" class="headerlink" title="配置DNS"></a>配置DNS</h3><p>我用的是cnfeat大神推荐的<a href="https://www.dnspod.cn" target="_blank" rel="external">DNSPod</a><br>进入后注册一个账号，进入域名解析,添加域名<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_2.png" alt="yumingjiexi icon"><br>添加完成后，点击添加的域名，进入添加记录界面，进行如下的配置<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_3.png" alt="tianjiajilu icon"><br>其中A的两条记录指向的ip地址是github Pages的提供的ip</p>
 <ul>
 <li>192.30.252.153</li>
-<li>192.30.252.154<br>如博客不能登录，有可能是github更改了空间服务的ip地址，记得及时到在GitHub Pages查看最新的ip即可<br>www指定的记录是你在github注册的仓库。<h3 id="去Godaddy修改DNS地址"><a href="#去Godaddy修改DNS地址" class="headerlink" title="去Godaddy修改DNS地址"></a>去Godaddy修改DNS地址</h3>进入Godaddy，登录你的用户名，在我的域名中，管理DNS<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_5.png" alt="guanliDNS icon"><br>在域名服务器中配置我们的DNS地址，地址就是之前添加记录时的记录类型为NS的两条记录内容。<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_6.png" alt="peizhiDNS icon"><h3 id="将独立域名与GitHub-Pages的空间绑定"><a href="#将独立域名与GitHub-Pages的空间绑定" class="headerlink" title="将独立域名与GitHub Pages的空间绑定"></a>将独立域名与GitHub Pages的空间绑定</h3>到我的github仓库，点击右下角的「Download ZIP」，下载源文件，解压，找到CNAME文件，用记事本打开，将chaselan.com修改成你的域名，放进hexo\source目录下<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><h3 id="部署到Github中"><a href="#部署到Github中" class="headerlink" title="部署到Github中"></a>部署到Github中</h3>打开finder，进入到hexo文件中，打开_config文件，修改Deployment配置<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_8.png" alt="xiugaideployment icon"><br>打开终端执行命令，跳转到hexo文件夹中<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /Users/电脑的账户名称/hexo</span><br><span class="line">$ sudo hexo g</span><br><span class="line">$ sudo hexo d</span><br></pre></td></tr></table></figure>
-</li>
+<li>192.30.252.154</li>
 </ul>
+<p>如博客不能登录，有可能是github更改了空间服务的ip地址，记得及时到在GitHub Pages查看最新的ip即可<br>www指定的记录是你在github注册的仓库。</p>
+<h3 id="去Godaddy修改DNS地址"><a href="#去Godaddy修改DNS地址" class="headerlink" title="去Godaddy修改DNS地址"></a>去Godaddy修改DNS地址</h3><p>进入Godaddy，登录你的用户名，在我的域名中，管理DNS<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_5.png" alt="guanliDNS icon"><br>在域名服务器中配置我们的DNS地址，地址就是之前添加记录时的记录类型为NS的两条记录内容。<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_6.png" alt="peizhiDNS icon"></p>
+<h3 id="将独立域名与GitHub-Pages的空间绑定"><a href="#将独立域名与GitHub-Pages的空间绑定" class="headerlink" title="将独立域名与GitHub Pages的空间绑定"></a>将独立域名与GitHub Pages的空间绑定</h3><p>到我的github仓库，点击右下角的「Download ZIP」，下载源文件，解压，找到CNAME文件，用记事本打开，将chaselan.com修改成你的域名，放进hexo\source目录下</p>
+<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><h3 id="部署到Github中"><a href="#部署到Github中" class="headerlink" title="部署到Github中"></a>部署到Github中</h3><p>打开finder，进入到hexo文件中，打开_config文件，修改Deployment配置<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_8.png" alt="xiugaideployment icon"><br>打开终端执行命令，跳转到hexo文件夹中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /Users/电脑的账户名称/hexo</span><br><span class="line">$ sudo hexo g</span><br><span class="line">$ sudo hexo d</span><br></pre></td></tr></table></figure></p>
 <p>现在为止，部署就成功了，在浏览器中输入你的域名，就可以查看你的博客了</p>
 <h2 id="next主题的相关配置"><a href="#next主题的相关配置" class="headerlink" title="next主题的相关配置"></a>next主题的相关配置</h2><p>请参考<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next的使用帮助</a></p>
 <p>转载请注明原作者！</p>
