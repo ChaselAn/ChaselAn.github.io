@@ -1,0 +1,662 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="一句代码,POST/GET,文件上传," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="只用一句代码实现：POST请求、GET请求、单文件上传、多文件上传。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一句代码实现POST/GET请求以及多文件上传(OC)">
+<meta property="og:url" content="http://chaselan.com/2016/04/26/一句代码实现POST:GET请求以及多文件上传(OC)/index.html">
+<meta property="og:site_name" content="求生之地">
+<meta property="og:description" content="只用一句代码实现：POST请求、GET请求、单文件上传、多文件上传。">
+<meta property="og:updated_time" content="2016-04-26T15:24:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一句代码实现POST/GET请求以及多文件上传(OC)">
+<meta name="twitter:description" content="只用一句代码实现：POST请求、GET请求、单文件上传、多文件上传。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 一句代码实现POST/GET请求以及多文件上传(OC) | 求生之地 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">求生之地</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">相遇,相知.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                一句代码实现POST/GET请求以及多文件上传(OC)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-26T14:31:05+08:00" content="2016-04-26">
+              2016-04-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码库/" itemprop="url" rel="index">
+                    <span itemprop="name">代码库</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/26/一句代码实现POST:GET请求以及多文件上传(OC)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/26/一句代码实现POST:GET请求以及多文件上传(OC)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>通过封装代码，实现只用一句代码以下功能。</p>
+<ul>
+<li>POST请求</li>
+<li>GET请求</li>
+<li>单文件上传</li>
+<li>多文件上传</li>
+</ul>
+<p>代码请见<a href="https://github.com/ChaselAn/ACNewWorkTool" target="_blank" rel="external">Github–ACNetWorkTool框架</a></p>
+<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><p>参数：</p>
+<ul>
+<li>UrlString:NSString类型，网络接口</li>
+<li>paramaters:NSDictionary类型，参数字典</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">NSString *urlString = @&quot;http://127.0.0.1/login/login.php&quot;;</span><br><span class="line">NSDictionary *dict = @&#123;@&quot;username&quot;:@&quot;zhangsan&quot;,@&quot;password&quot;:@&quot;zhang&quot;&#125;;</span><br><span class="line"></span><br><span class="line">//一句代码的POST请求</span><br><span class="line">[[ACNetWorkTool sharedNetworkTool] POSTWithUrlString:urlString paramaters:dict successHandle:^(id obj, NSURLResponse *response) &#123;</span><br><span class="line">	//返回数据成功之后进行的操作，obj为返回的数据，如果是JSON数据，见自动转换成数组或字典，如果不是，返回的是二进制数据。</span><br><span class="line">	NSLog(@&quot;%@&quot;,obj);</span><br><span class="line">&#125; failHandle:^(NSError *error) &#123;</span><br><span class="line">	//返回数据失败之后的操作</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><p>参数：</p>
+<ul>
+<li>UrlString:NSString类型，网络接口</li>
+<li>paramaters:NSDictionary类型，参数字典</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">NSString *urlString = @&quot;http://127.0.0.1/login/login.php&quot;;</span><br><span class="line">NSDictionary *dict = @&#123;@&quot;username&quot;:@&quot;zhangsan&quot;,@&quot;password&quot;:@&quot;zhang&quot;&#125;;</span><br><span class="line"></span><br><span class="line">//一句代码的GET请求</span><br><span class="line">[[ACNetWorkTool sharedNetworkTool] GETWithUrlString:urlString paramaters:dict successHandle:^(id obj, NSURLResponse *response) &#123;</span><br><span class="line">	//返回数据成功之后进行的操作，obj为返回的数据，如果是JSON数据，见自动转换成数组或字典，如果不是，返回的是二进制数据。</span><br><span class="line">	NSLog(@&quot;%@&quot;,obj);</span><br><span class="line">&#125; failHandle:^(NSError *error) &#123;</span><br><span class="line">	//返回数据失败之后的操作</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="单文件上传"><a href="#单文件上传" class="headerlink" title="单文件上传"></a>单文件上传</h3><p>参数：</p>
+<ul>
+<li>UrlString:NSString类型，网络接口</li>
+<li>KeyName:NSString类型，服务器接收文件参数的key值</li>
+<li>fileName:NSString类型，存储在服务器的文件名称</li>
+<li>filePath:NSStirng类型，本地文件的路径</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">NSString *urlString = @&quot;http://127.0.0.1/upload/upload.php&quot;;</span><br><span class="line">NSString *filePath = @&quot;/Users/ac/Desktop/test.json&quot;;</span><br><span class="line"></span><br><span class="line">//一句代码的单文件上传</span><br><span class="line">[[ACNetWorkTool sharedNetworkTool] POSTFileWithUrlString:urlString KeyName:@&quot;userfile&quot; fileName:@&quot;123&quot; filePath:filePath successHandle:^(id obj, NSURLResponse *response) &#123;</span><br><span class="line">	//返回数据成功之后进行的操作，obj为返回的数据，如果是JSON数据，见自动转换成数组或字典，如果不是，返回的是二进制数据。</span><br><span class="line">	NSLog(@&quot;%@&quot;,obj);</span><br><span class="line">&#125; failHandle:^(NSError *error) &#123;</span><br><span class="line">	//返回数据失败之后的操作</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="多文件上传"><a href="#多文件上传" class="headerlink" title="多文件上传"></a>多文件上传</h3><p>参数：</p>
+<ul>
+<li>UrlString:NSString类型，网络接口</li>
+<li>FileKey:NSString类型，服务器接收文件参数的key值</li>
+<li>fileDict:NSDictionary类型，文件参数字典，&lt; key:文件名称 value:文件路径&gt;</li>
+<li>paramaters:NSDictionary类型，普通参数字典，&lt; key:服务器接收普通参数的key值 value:参数内容&gt;</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 文件地址</span><br><span class="line">NSString *urlString = @&quot;http://127.0.0.1/upload/upload-m.php&quot;;</span><br><span class="line">NSString *filePath1 = @&quot;/Users/ac/Desktop/test1.png&quot;;</span><br><span class="line">NSString *filePath2 = @&quot;/Users/ac/Desktop/test2.json&quot;;</span><br><span class="line">NSString *filePath3 = @&quot;/Users/ac/Desktop/test3.png&quot;;</span><br><span class="line">NSDictionary *fileDict =@&#123;@&quot;file1&quot;:filePath1,@&quot;file2&quot;:filePath2,@&quot;file3&quot;:filePath3&#125;;</span><br><span class="line"></span><br><span class="line">// 普通参数字典</span><br><span class="line">NSDictionary *paramaters = @&#123;@&quot;username&quot;:@&quot;zhangsan&quot;,@&quot;password&quot;:@&quot;zhang&quot;,@&quot;gongsi&quot;:@&quot;itcast&quot;&#125;;</span><br><span class="line"></span><br><span class="line">//一句代码的多文件上传</span><br><span class="line">[[ACNetWorkTool sharedNetworkTool] POSTMoreFileWithUrlString:urlString FileKey:@&quot;userfile[]&quot; fileDict:fileDict paramaters:paramaters successHandle:^(id obj, NSURLResponse *response)&#123;</span><br><span class="line">	//返回数据成功之后进行的操作，obj为返回的数据，如果是JSON数据，见自动转换成数组或字典，如果不是，返回的是二进制数据。</span><br><span class="line">	NSLog(@&quot;%@&quot;,obj);</span><br><span class="line">&#125; failHandle:^(NSError *error) &#123;</span><br><span class="line">	//返回数据失败之后的操作</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/一句代码/" rel="tag">#一句代码</a>
+          
+            <a href="/tags/POST-GET/" rel="tag">#POST/GET</a>
+          
+            <a href="/tags/文件上传/" rel="tag">#文件上传</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/25/本博客的搭建详解/" rel="next" title="本博客的搭建详解">
+                <i class="fa fa-chevron-left"></i> 本博客的搭建详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/26/一句代码实现POST:GET请求以及多文件上传(OC)/"
+           data-title="一句代码实现POST/GET请求以及多文件上传(OC)" data-url="http://chaselan.com/2016/04/26/一句代码实现POST:GET请求以及多文件上传(OC)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="ChaselAn" />
+          <p class="site-author-name" itemprop="name">ChaselAn</p>
+          <p class="site-description motion-element" itemprop="description">安程，93年生，毕业于青岛大学软件工程专业，目前正在学习iOS开发。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ChaselAn" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2093067257/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#POST请求"><span class="nav-number">1.</span> <span class="nav-text">POST请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET请求"><span class="nav-number">2.</span> <span class="nav-text">GET请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单文件上传"><span class="nav-number">3.</span> <span class="nav-text">单文件上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多文件上传"><span class="nav-number">4.</span> <span class="nav-text">多文件上传</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChaselAn</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chaselan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
