@@ -312,56 +312,28 @@
       
         
           
-            <p>此文记录本博客的搭建过程。本博客的搭建主要参考cnfeat大神的<a href="http://www.jianshu.com/p/05289a4bc8b2/" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a>。</p>
-<p>此博客采用的是Github Pages+Hexo搭建，至于什么是Github Pages和Hexo,以及这两个的优缺点我就在这不多说了，请各位看官自行百度，那儿的解释比较专业。话不多说，开始搭建。</p>
+            <p>此文记录本博客的搭建过程。本博客的搭建主要参考cnfeat大神的<a href="http://www.jianshu.com/p/05289a4bc8b2/" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a>。<br>此博客采用的是Github Pages+Hexo搭建，至于什么是Github Pages和Hexo,以及这两个的优缺点我就在这不多说了，请各位看官自行百度，那儿的解释比较专业。话不多说，开始搭建。</p>
 <p>注意：本文写的是MAC系统下的搭建过程，Windows系统的请自行百度。</p>
 <h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><h3 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a>注册Github账号</h3><p>首先你需要有一个github的账号。访问:<a href="https://github.com" target="_blank" rel="external">http://www.github.com/</a>进行注册。</p>
 <h3 id="配置和使用Github"><a href="#配置和使用Github" class="headerlink" title="配置和使用Github"></a>配置和使用Github</h3><p>请参考<a href="http://www.cnblogs.com/heyonggang/p/3462191.html" target="_blank" rel="external">mac下使用github</a>。</p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><h3 id="安装配置Hexo"><a href="#安装配置Hexo" class="headerlink" title="安装配置Hexo"></a>安装配置Hexo</h3><p>首先需要先安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>。</p>
-<p>安装完成后，打开终端，输入命令行安装hexo：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
-<p>在Finder中的小房子的图标中，建立一个名字叫”hexo”的文件夹。（如果finder中边栏里没有小房子图标，请在finder中的偏好设置里边栏中勾选中小房子。）</p>
-<p>执行以下命令，进入到hexo的文件目录中，进行初始化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /Users/小房子的名称/hexo</span><br><span class="line">$ sudo hexo init</span><br></pre></td></tr></table></figure>
-<p>Hexo随后会自动在目标文件夹建立网站所需要的所有文件。</p>
-<p>现在我们已经搭建起本地的hexo博客了，执行以下命令，然后到浏览器输入localhost:4000可以看到hexo的界面。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo g</span><br><span class="line">$ sudo hexo s</span><br></pre></td></tr></table></figure>
-<p>按下control + c可以退出</p>
-<h3 id="复制主题"><a href="#复制主题" class="headerlink" title="复制主题"></a>复制主题</h3><p>建立了Hexo文件之后就可以复制我们所需要的主题了</p>
-<p>本博客使用的是比较火next主题。更多的主题可以在<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题</a>中寻找适合自己的主题。</p>
-<p>执行命令复制主题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<h3 id="启用next主题"><a href="#启用next主题" class="headerlink" title="启用next主题"></a>启用next主题</h3><p>在finder中进入hexo文件，打开_config.yml文件（可以使用xcode进行编辑），找到theme：landscape,将landscape替换成hexo，如果文件被锁定修改不了，请右键点击_config.yml文件，选择显示简介，将权限修改成读与写。</p>
-<p><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_7.png" alt="xiugaitheme icon"></p>
-<p>修改之后，执行以下命令来更新注意</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><h3 id="安装配置Hexo"><a href="#安装配置Hexo" class="headerlink" title="安装配置Hexo"></a>安装配置Hexo</h3><p>首先需要先安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>。<br>安装完成后，打开终端，输入命令行安装hexo：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>在Finder中的小房子的图标中，建立一个名字叫”hexo”的文件夹。（如果finder中边栏里没有小房子图标，请在finder中的偏好设置里边栏中勾选中小房子。）<br>执行以下命令，进入到hexo的文件目录中，进行初始化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /Users/小房子的名称/hexo</span><br><span class="line">$ sudo hexo init</span><br></pre></td></tr></table></figure></p>
+<p>Hexo随后会自动在目标文件夹建立网站所需要的所有文件。<br>现在我们已经搭建起本地的hexo博客了，执行以下命令，然后到浏览器输入localhost:4000可以看到hexo的界面。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo g</span><br><span class="line">$ sudo hexo s</span><br></pre></td></tr></table></figure></p>
+<p>按下control + c可以退出。</p>
+<h3 id="复制主题"><a href="#复制主题" class="headerlink" title="复制主题"></a>复制主题</h3><p>建立了Hexo文件之后就可以复制我们所需要的主题了。<br>本博客使用的是比较火next主题。更多的主题可以在<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题</a>中寻找适合自己的主题。<br>执行命令复制主题。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p>
+<h3 id="启用next主题"><a href="#启用next主题" class="headerlink" title="启用next主题"></a>启用next主题</h3><p>在finder中进入hexo文件，打开_config.yml文件（可以使用xcode进行编辑），找到theme：landscape,将landscape替换成next，如果文件被锁定修改不了，请右键点击_config.yml文件，选择显示简介，将权限修改成读与写。<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_7.png" alt="xiugaitheme icon"><br>修改之后，执行以下命令来更新主题。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure></p>
 <h3 id="查看搭建效果"><a href="#查看搭建效果" class="headerlink" title="查看搭建效果"></a>查看搭建效果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo g</span><br><span class="line">$ sudo hexo s</span><br></pre></td></tr></table></figure>
 <p>执行命令后，到浏览器输入localhost:4000就可以看到我们的主题效果了。</p>
-<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>如果已有域名，可跳过这一步。</p>
-<p>推荐去<a href="https://sg.godaddy.com/zh/offers/default.aspx?tmskey=1dom_23&amp;isc=bsfndom4&amp;cvosrc=ppc.baidu&amp;currencytype=CNY&amp;ef_id=Vxx1xgAABR8c4vcQ:20160426000818:s" target="_blank" rel="external">godaddy</a>上购买，安全，可用支付宝。</p>
-<p>搜索到想要的域名，然后选择使用年限，进行购买。</p>
-<h3 id="配置DNS"><a href="#配置DNS" class="headerlink" title="配置DNS"></a>配置DNS</h3><p>我用的是cnfeat大神推荐的<a href="https://www.dnspod.cn" target="_blank" rel="external">DNSPod</a><br>进入后注册一个账号，进入域名解析,添加域名</p>
-<p><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_2.png" alt="yumingjiexi icon"></p>
-<p>添加完成后，点击添加的域名，进入添加记录界面，进行如下的配置</p>
-<p><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_3.png" alt="tianjiajilu icon"></p>
-<p>其中A的两条记录指向的ip地址是github Pages的提供的ip</p>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>如果已有域名，可跳过这一步。<br>推荐去<a href="https://sg.godaddy.com/zh/offers/default.aspx?tmskey=1dom_23&amp;isc=bsfndom4&amp;cvosrc=ppc.baidu&amp;currencytype=CNY&amp;ef_id=Vxx1xgAABR8c4vcQ:20160426000818:s" target="_blank" rel="external">godaddy</a>上购买，安全，可用支付宝。<br>搜索到想要的域名，然后选择购买年限，进行购买。</p>
+<h3 id="配置DNS"><a href="#配置DNS" class="headerlink" title="配置DNS"></a>配置DNS</h3><p>我用的是cnfeat大神推荐的<a href="https://www.dnspod.cn" target="_blank" rel="external">DNSPod</a><br>进入后注册一个账号，进入域名解析,添加域名<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_2.png" alt="yumingjiexi icon"><br>添加完成后，点击添加的域名，进入添加记录界面，进行如下的配置<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_3.png" alt="tianjiajilu icon"><br>其中A的两条记录指向的ip地址是github Pages的提供的ip</p>
 <ul>
 <li>192.30.252.153</li>
-<li>192.30.252.154</li>
+<li>192.30.252.154<br>如博客不能登录，有可能是github更改了空间服务的ip地址，记得及时到在GitHub Pages查看最新的ip即可<br>www指定的记录是你在github注册的仓库。<h3 id="去Godaddy修改DNS地址"><a href="#去Godaddy修改DNS地址" class="headerlink" title="去Godaddy修改DNS地址"></a>去Godaddy修改DNS地址</h3>进入Godaddy，登录你的用户名，在我的域名中，管理DNS<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_5.png" alt="guanliDNS icon"><br>在域名服务器中配置我们的DNS地址，地址就是之前添加记录时的记录类型为NS的两条记录内容。<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_6.png" alt="peizhiDNS icon"><h3 id="将独立域名与GitHub-Pages的空间绑定"><a href="#将独立域名与GitHub-Pages的空间绑定" class="headerlink" title="将独立域名与GitHub Pages的空间绑定"></a>将独立域名与GitHub Pages的空间绑定</h3>到我的github仓库，点击右下角的「Download ZIP」，下载源文件，解压，找到CNAME文件，用记事本打开，将chaselan.com修改成你的域名，放进hexo\source目录下<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><h3 id="部署到Github中"><a href="#部署到Github中" class="headerlink" title="部署到Github中"></a>部署到Github中</h3>打开finder，进入到hexo文件中，打开_config文件，修改Deployment配置<br><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_8.png" alt="xiugaideployment icon"><br>打开终端执行命令，跳转到hexo文件夹中<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /Users/电脑的账户名称/hexo</span><br><span class="line">$ sudo hexo g</span><br><span class="line">$ sudo hexo d</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>如博客不能登录，有可能是github更改了空间服务的ip地址，记得及时到在GitHub Pages查看最新的ip即可</p>
-<p>www指定的记录是你在github注册的仓库。</p>
-<h3 id="去Godaddy修改DNS地址"><a href="#去Godaddy修改DNS地址" class="headerlink" title="去Godaddy修改DNS地址"></a>去Godaddy修改DNS地址</h3><p>进入Godaddy，登录你的用户名，在我的域名中，管理DNS</p>
-<p><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_5.png" alt="guanliDNS icon"></p>
-<p>在域名服务器中配置我们的DNS地址，地址就是之前添加记录时的记录类型为NS的两条记录内容。</p>
-<p><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_6.png" alt="peizhiDNS icon"></p>
-<h3 id="将独立域名与GitHub-Pages的空间绑定"><a href="#将独立域名与GitHub-Pages的空间绑定" class="headerlink" title="将独立域名与GitHub Pages的空间绑定"></a>将独立域名与GitHub Pages的空间绑定</h3><p>到我的github仓库，点击右下角的「Download ZIP」，下载源文件，解压，找到CNAME文件，用记事本打开，将chaselan.com修改成你的域名，放进hexo\source目录下</p>
-<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><h3 id="部署到Github中"><a href="#部署到Github中" class="headerlink" title="部署到Github中"></a>部署到Github中</h3><p>打开finder，进入到hexo文件中，打开_config文件，修改Deployment配置</p>
-<p><img src="http://7xte1z.com1.z0.glb.clouddn.com/Snip20160426_8.png" alt="xiugaideployment icon"></p>
-<p>打开终端执行命令，跳转到hexo文件夹中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /Users/电脑的账户名称/hexo</span><br><span class="line">$ sudo hexo g</span><br><span class="line">$ sudo hexo d</span><br></pre></td></tr></table></figure>
 <p>现在为止，部署就成功了，在浏览器中输入你的域名，就可以查看你的博客了</p>
 <h2 id="next主题的相关配置"><a href="#next主题的相关配置" class="headerlink" title="next主题的相关配置"></a>next主题的相关配置</h2><p>请参考<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next的使用帮助</a></p>
+<p>转载请注明原作者！</p>
 
           
         
