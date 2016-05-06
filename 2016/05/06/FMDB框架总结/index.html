@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SDWebImage," />
+  <meta name="keywords" content="FMDB," />
 
 
 
@@ -80,18 +80,16 @@
 
 
 
-<meta name="description" content="简单分析第三方框架SDWebImage并记录SDWebImage的常用功能。">
+<meta name="description" content="简单总结第三方框架FMDB并记录FMDB的常用方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SDWebImage框架分析">
-<meta property="og:url" content="http://chaselan.com/2016/05/06/SDWebImage框架分析/index.html">
+<meta property="og:title" content="FMDB框架总结">
+<meta property="og:url" content="http://chaselan.com/2016/05/06/FMDB框架总结/index.html">
 <meta property="og:site_name" content="ChaselAn's blog">
-<meta property="og:description" content="简单分析第三方框架SDWebImage并记录SDWebImage的常用功能。">
-<meta property="og:image" content="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png">
-<meta property="og:updated_time" content="2016-05-06T11:53:24.000Z">
+<meta property="og:description" content="简单总结第三方框架FMDB并记录FMDB的常用方法。">
+<meta property="og:updated_time" content="2016-05-06T12:18:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SDWebImage框架分析">
-<meta name="twitter:description" content="简单分析第三方框架SDWebImage并记录SDWebImage的常用功能。">
-<meta name="twitter:image" content="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png">
+<meta name="twitter:title" content="FMDB框架总结">
+<meta name="twitter:description" content="简单总结第三方框架FMDB并记录FMDB的常用方法。">
 
 
 
@@ -109,7 +107,7 @@
   };
 </script>
 
-  <title> SDWebImage框架分析 | ChaselAn's blog </title>
+  <title> FMDB框架总结 | ChaselAn's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +277,7 @@
             
             
               
-                SDWebImage框架分析
+                FMDB框架总结
               
             
           </h1>
@@ -291,7 +289,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-06T08:09:59+08:00" content="2016-05-06">
+            <time itemprop="dateCreated" datetime="2016-05-06T19:57:36+08:00" content="2016-05-06">
               2016-05-06
             </time>
           </span>
@@ -321,8 +319,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/06/SDWebImage框架分析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/06/SDWebImage框架分析/" itemprop="commentsCount"></span>
+                <a href="/2016/05/06/FMDB框架总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/06/FMDB框架总结/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -345,76 +343,49 @@
       
 
       
-        <h2 id="什么是SDWebImage"><a href="#什么是SDWebImage" class="headerlink" title="什么是SDWebImage"></a>什么是SDWebImage</h2><ul>
-<li>SDWebImage是iOS中著名的网络图片处理框架</li>
-<li>包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等</li>
-<li>用法极其简单，功能十分强大，大大提高了网络图片的处理效率</li>
-<li>国内超过90%的iOS项目都有它的影子</li>
-<li>框架地址：<a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">https://github.com/rs/SDWebImage</a></li>
+        <h2 id="什么是FMDB？"><a href="#什么是FMDB？" class="headerlink" title="什么是FMDB？"></a>什么是FMDB？</h2><ul>
+<li>FMDB是iOS平台的SQLite数据库框架</li>
+<li>FMDB以OC的方式封装了SQLite的C语言API</li>
+<li>FMDB的下载地址<a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">https://github.com/ccgus/fmdb</a></li>
 </ul>
-<h2 id="关于SDWebImage的常见问题"><a href="#关于SDWebImage的常见问题" class="headerlink" title="关于SDWebImage的常见问题"></a>关于SDWebImage的常见问题</h2><p>1&gt; 图片文件缓存的时间有多长：<code>1周</code></p>
-<p><code>_maxCacheAge ＝ kDefaultCacheMaxCacheAge</code></p>
-<p>2&gt; SDWebImage 的内存缓存是用什么实现的？</p>
-<p><code>NSCache</code></p>
-<p>3&gt; SDWebImage 的最大并发数是多少？</p>
-<p><code>maxConcurrentDownloads ＝ 6</code></p>
-<p>4&gt; SDWebImage 支持动图吗？GIF</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;ImageIO/ImageIO.h&gt;</span></span></span><br><span class="line">[<span class="built_in">UIImage</span> animatedImageWithImages:images duration:duration];</span><br></pre></td></tr></table></figure>
-<p>5&gt; SDWebImage是如何区分不同格式的图像的</p>
+<h2 id="FMDB的优点"><a href="#FMDB的优点" class="headerlink" title="FMDB的优点"></a>FMDB的优点</h2><ul>
+<li>苹果自带的SQLite的API是C语言的，而且特别难用，FMDB是OC的</li>
+<li>使用起来更加面向对象，省去了很多麻烦、冗余的C语言代码</li>
+<li>对比苹果自带的Core Data框架，更加轻量级和灵活</li>
+<li>提供了多线程安全的数据库操作方法，有效地防止数据混乱</li>
+</ul>
+<h2 id="FMDB的核心类"><a href="#FMDB的核心类" class="headerlink" title="FMDB的核心类"></a>FMDB的核心类</h2><h3 id="FMDatabase"><a href="#FMDatabase" class="headerlink" title="FMDatabase"></a>FMDatabase</h3><ul>
+<li>一个FMDatabase对象就代表一个单独的SQLite数据库</li>
+<li>用来执行SQL语句</li>
+</ul>
+<h3 id="FMResultSet"><a href="#FMResultSet" class="headerlink" title="FMResultSet"></a>FMResultSet</h3><ul>
+<li>使用FMDatabase执行查询后的结果集</li>
+</ul>
+<h3 id="FMDatabaseQueue"><a href="#FMDatabaseQueue" class="headerlink" title="FMDatabaseQueue"></a>FMDatabaseQueue</h3><ul>
+<li>用于在多线程中执行多个查询或更新，它是线程安全的</li>
+</ul>
+<h2 id="FMDB的常用方法"><a href="#FMDB的常用方法" class="headerlink" title="FMDB的常用方法"></a>FMDB的常用方法</h2><h3 id="打开数据库"><a href="#打开数据库" class="headerlink" title="打开数据库"></a>打开数据库</h3><ul>
+<li><p>通过指定SQLite数据库文件路径来创建FMDatabase对象</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FMDatabase *db = [FMDatabase databaseWithPath:path];</span><br><span class="line"><span class="keyword">if</span> (![db open]) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"数据库打开失败！"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>path（数据库文件的路径）的三种情况</p>
 <ul>
-<li>根据图像数据第一个字节来判断的！<ul>
-<li>PNG：0x89</li>
-<li>JPG：0xFF</li>
-<li>GIF：0x47</li>
+<li>传入具体文件路径：如果数据库文件不存在会自动创建</li>
+<li>空字符串<code>@&quot;&quot;</code>：会在临时目录创建一个空的数据库，当<br><code>FMDatabase</code>连接关闭时，数据库文件也被删除</li>
+<li><code>nil</code>：会创建一个内存中临时数据库，当<code>FMDatabase</code>连接关闭<br>时，数据库会被销毁</li>
 </ul>
 </li>
 </ul>
-<p>6&gt; SDWebImage 缓存图片的名称是怎么确定的！</p>
-<ul>
-<li><code>md5</code><ul>
-<li>如果单纯使用 文件名保存，重名的几率很高！</li>
-<li>使用 MD5 的散列函数！对完整的 URL 进行 md5，结果是一个 32 个字符长度的字符串！</li>
-</ul>
+<h3 id="执行更新（增删改）"><a href="#执行更新（增删改）" class="headerlink" title="执行更新（增删改）"></a>执行更新（增删改）</h3><ul>
+<li>在FMDB中，除查询以外的所有操作，都称为“更新”。比如create、drop、insert、update、delete等</li>
+<li>使用executeUpdate:方法执行更新<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//db为上方打开数据库方法中创建的FMDatabase对象</span></span><br><span class="line">[db executeUpdate:<span class="string">@"UPDATE t_student SET age = %@ WHERE name = %@;"</span>, @<span class="number">20</span>, <span class="string">@"Jack"</span>]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>7&gt; SDWebImage 的内存警告是如何处理的！</p>
+<h3 id="执行查询"><a href="#执行查询" class="headerlink" title="执行查询"></a>执行查询</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询数据</span></span><br><span class="line">FMResultSet *rs = [db executeQuery:<span class="string">@"SELECT * FROM t_student"</span>];</span><br></pre></td></tr></table></figure>
 <ul>
-<li>利用通知中心观察</li>
-<li><code>- UIApplicationDidReceiveMemoryWarningNotification</code> 接收到内存警告的通知<ul>
-<li>执行 <code>clearMemory</code> 方法，清理内存缓存！</li>
+<li>返回的结果集<code>FMResultSet</code>中存放着查询出来的结果。通过遍历结果集来取出相应的字段</li>
 </ul>
-</li>
-<li><code>- UIApplicationWillTerminateNotification</code> 接收到应用程序将要终止通知<ul>
-<li>执行 <code>cleanDisk</code> 方法，清理磁盘缓存！</li>
-</ul>
-</li>
-<li><code>- UIApplicationDidEnterBackgroundNotification</code> 接收到应用程序进入后台通知<ul>
-<li>执行 <code>backgroundCleanDisk</code> 方法，后台清理磁盘！</li>
-<li>通过以上通知监听，能够保证缓存文件的大小始终在控制范围之内！</li>
-<li><code>clearDisk</code> 清空磁盘缓存，将所有缓存目录中的文件，全部删除！实际工作，将缓存目录直接删除，再次创建一个同名空目录！</li>
-</ul>
-</li>
-</ul>
-<h2 id="分析SDWebImage的下载操作"><a href="#分析SDWebImage的下载操作" class="headerlink" title="分析SDWebImage的下载操作"></a>分析SDWebImage的下载操作</h2><p><img src="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png" alt=""></p>
-<ul>
-<li>以tableView加载图片为例。</li>
-<li>首先控制器拿到模型数据，传递给cell（<code>UIImageView</code>在cell中），cell拿到模型取出图片地址（图片的下载地址<code>URLString</code>保存在模型的属性中）。</li>
-<li><code>UIImageView</code>只是个视图，只负责展示，不能进行下载。所以<code>UIImageView</code>找了一个单例（图像下载管理器单例）去下载。也就是<code>UIImageView</code>的分类集成了一个图像下载管理器单例，来负责图片的下载和缓存。</li>
-<li>但是单例是继承自<code>NSObject</code>的，并没有下载功能。所以单例去找了图像下载操作（操作指的是<code>NSOperation</code>）去下载，相当于单例集成了图像下载操作。真正的下载是在图像下载操作中。</li>
-</ul>
-<h2 id="SDWebImage为什么这么设计？"><a href="#SDWebImage为什么这么设计？" class="headerlink" title="SDWebImage为什么这么设计？"></a>SDWebImage为什么这么设计？</h2><ul>
-<li>为了解耦！</li>
-<li>控制器只需要只要UIImageView的存在就行了，只告诉<code>UIImageView</code>一个地址，让它去下载，下载过程控制器并不关心。</li>
-<li><code>UIImageView</code>不具备下载功能，所以找了单例去下载，<code>UIImageView</code>仅仅只知道单例的存在，不关心单例如何去下载。<code>UIImageView</code>只需让单例去下载然后把图片传给它就行了，然后展示出来。</li>
-<li>但是单例也不能进行下载，它仅仅继承自<code>NSObject</code>，没有下载功能。单例就继承了图像下载操作，将下载的地址告诉图像下载操作。</li>
-<li>图像下载操作将图片下载完毕之后，将图片对象回调给单例。单例拿到图片就传给<code>UIImageView</code>，<code>UIImageView</code>拿到图片就展示出来。</li>
-</ul>
-<h2 id="SDWebImage的常用方法"><a href="#SDWebImage的常用方法" class="headerlink" title="SDWebImage的常用方法"></a>SDWebImage的常用方法</h2><h3 id="下载普通图片"><a href="#下载普通图片" class="headerlink" title="下载普通图片"></a>下载普通图片</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.imageView sd_setImageWithURL:URL placeholderImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"user_default"</span>]];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>URL：图片的下载地址</li>
-<li>placholderImage：占位图（图片因为网络延迟，下载完成之前显示的图片）</li>
-<li>此方法是UIImageView的分类方法。根据图片地址下载普通图片，并赋值给UIImageView.image。</li>
-</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 遍历结果集</span></span><br><span class="line"><span class="keyword">while</span> ([rs next]) &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *name = [rs stringForColumn:<span class="string">@"name"</span>];</span><br><span class="line">    <span class="keyword">int</span> age = [rs intForColumn:<span class="string">@"age"</span>];</span><br><span class="line">    <span class="keyword">double</span> score = [rs doubleForColumn:<span class="string">@"score"</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -435,7 +406,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SDWebImage/" rel="tag">#SDWebImage</a>
+            <a href="/tags/FMDB/" rel="tag">#FMDB</a>
           
         </div>
       
@@ -444,17 +415,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/04/AFN的简单使用/" rel="next" title="AFN的简单使用">
-                <i class="fa fa-chevron-left"></i> AFN的简单使用
+              <a href="/2016/05/06/SDWebImage框架分析/" rel="next" title="SDWebImage框架分析">
+                <i class="fa fa-chevron-left"></i> SDWebImage框架分析
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/06/FMDB框架总结/" rel="prev" title="FMDB框架总结">
-                FMDB框架总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -480,8 +447,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/06/SDWebImage框架分析/"
-           data-title="SDWebImage框架分析" data-url="http://chaselan.com/2016/05/06/SDWebImage框架分析/">
+      <div class="ds-thread" data-thread-key="2016/05/06/FMDB框架总结/"
+           data-title="FMDB框架总结" data-url="http://chaselan.com/2016/05/06/FMDB框架总结/">
       </div>
     
   </div>
@@ -588,7 +555,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是SDWebImage"><span class="nav-number">1.</span> <span class="nav-text">什么是SDWebImage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于SDWebImage的常见问题"><span class="nav-number">2.</span> <span class="nav-text">关于SDWebImage的常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析SDWebImage的下载操作"><span class="nav-number">3.</span> <span class="nav-text">分析SDWebImage的下载操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDWebImage为什么这么设计？"><span class="nav-number">4.</span> <span class="nav-text">SDWebImage为什么这么设计？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDWebImage的常用方法"><span class="nav-number">5.</span> <span class="nav-text">SDWebImage的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载普通图片"><span class="nav-number">5.1.</span> <span class="nav-text">下载普通图片</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是FMDB？"><span class="nav-number">1.</span> <span class="nav-text">什么是FMDB？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FMDB的优点"><span class="nav-number">2.</span> <span class="nav-text">FMDB的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FMDB的核心类"><span class="nav-number">3.</span> <span class="nav-text">FMDB的核心类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FMDatabase"><span class="nav-number">3.1.</span> <span class="nav-text">FMDatabase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FMResultSet"><span class="nav-number">3.2.</span> <span class="nav-text">FMResultSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FMDatabaseQueue"><span class="nav-number">3.3.</span> <span class="nav-text">FMDatabaseQueue</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FMDB的常用方法"><span class="nav-number">4.</span> <span class="nav-text">FMDB的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开数据库"><span class="nav-number">4.1.</span> <span class="nav-text">打开数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行更新（增删改）"><span class="nav-number">4.2.</span> <span class="nav-text">执行更新（增删改）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行查询"><span class="nav-number">4.3.</span> <span class="nav-text">执行查询</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
