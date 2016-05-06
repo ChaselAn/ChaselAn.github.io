@@ -80,16 +80,25 @@
 
 
 
-<meta name="description" content="简单记录第三方框架AFN的常用功能。">
+<meta name="description" content="什么是AFN
+AFN全称AFNetworking。
+AFN是对NSURLConnection和NSURLSession的封装。
+AFN的GitHub下载地址：AFNetworking">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AFN的简单使用">
 <meta property="og:url" content="http://chaselan.com/2016/05/04/AFN的简单使用/index.html">
 <meta property="og:site_name" content="ChaselAn's blog">
-<meta property="og:description" content="简单记录第三方框架AFN的常用功能。">
-<meta property="og:updated_time" content="2016-05-04T16:13:07.000Z">
+<meta property="og:description" content="什么是AFN
+AFN全称AFNetworking。
+AFN是对NSURLConnection和NSURLSession的封装。
+AFN的GitHub下载地址：AFNetworking">
+<meta property="og:updated_time" content="2016-05-06T15:42:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AFN的简单使用">
-<meta name="twitter:description" content="简单记录第三方框架AFN的常用功能。">
+<meta name="twitter:description" content="什么是AFN
+AFN全称AFNetworking。
+AFN是对NSURLConnection和NSURLSession的封装。
+AFN的GitHub下载地址：AFNetworking">
 
 
 
@@ -348,6 +357,7 @@
 <li>AFN是对NSURLConnection和NSURLSession的封装。</li>
 <li>AFN的GitHub下载地址：<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a></li>
 </ul>
+<a id="more"></a>
 <h2 id="AFN的常用功能"><a href="#AFN的常用功能" class="headerlink" title="AFN的常用功能"></a>AFN的常用功能</h2><h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 网络接口</span></span><br><span class="line"><span class="built_in">NSString</span> *urlString = <span class="string">@"http://127.0.0.1/login/login.php"</span>;</span><br><span class="line"><span class="comment">// 要传的的参数</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;<span class="string">@"username"</span>:<span class="string">@"zhangsan"</span>,<span class="string">@"password"</span>:<span class="string">@"zhangsan"</span>&#125;;</span><br><span class="line"><span class="comment">// 实例化网络请求管理类. //不是单例</span></span><br><span class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</span><br><span class="line"><span class="comment">// 更改解析器类型.</span></span><br><span class="line"><span class="comment">// [AFHTTPResponseSerializer serializer] :实例化解析器.</span></span><br><span class="line">manager.responseSerializer = [AFHTTPResponseSerializer serializer];</span><br><span class="line"><span class="comment">// 发送GET请求.</span></span><br><span class="line">[manager GET:urlString parameters:dict progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</span><br><span class="line">	<span class="comment">//progress:进度;这个参数是 AFN 3.0 之后新增的参数; 对于普通网络请求没有用处!</span></span><br><span class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"成功回调: responseObject:%@"</span>,responseObject);</span><br><span class="line">    <span class="built_in">NSData</span> *data = responseObject;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[<span class="built_in">NSString</span> alloc] initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>]);</span><br><span class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</span><br><span class="line">    <span class="comment">// 注意: 这里的失败指的不是网络请求失败!</span></span><br><span class="line">    <span class="comment">// 一般的失败都是 服务器返回的数据类型 跟 解析器类型不对号!</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"失败回调:error:%@"</span>,error);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 <ul>
 <li>这里的解析器<code>responseSerializer</code>有三类：<ul>
