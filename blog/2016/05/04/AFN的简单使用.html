@@ -1,0 +1,703 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="AFN," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="什么是AFN
+AFN全称AFNetworking。
+AFN是对NSURLConnection和NSURLSession的封装。
+AFN的GitHub下载地址：AFNetworking">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AFN的简单使用">
+<meta property="og:url" content="http://chaselan.com/blog/2016/05/04/AFN的简单使用.html">
+<meta property="og:site_name" content="ChaselAn's blog">
+<meta property="og:description" content="什么是AFN
+AFN全称AFNetworking。
+AFN是对NSURLConnection和NSURLSession的封装。
+AFN的GitHub下载地址：AFNetworking">
+<meta property="og:updated_time" content="2016-05-06T15:42:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AFN的简单使用">
+<meta name="twitter:description" content="什么是AFN
+AFN全称AFNetworking。
+AFN是对NSURLConnection和NSURLSession的封装。
+AFN的GitHub下载地址：AFNetworking">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> AFN的简单使用 | ChaselAn's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ChaselAn's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '-o3cSPoymBQobPJj6xLk','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                AFN的简单使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-04T19:52:18+08:00" content="2016-05-04">
+              2016-05-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS第三方框架/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS第三方框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/blog/2016/05/04/AFN的简单使用.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2016/05/04/AFN的简单使用.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是AFN"><a href="#什么是AFN" class="headerlink" title="什么是AFN"></a>什么是AFN</h2><ul>
+<li>AFN全称AFNetworking。</li>
+<li>AFN是对NSURLConnection和NSURLSession的封装。</li>
+<li>AFN的GitHub下载地址：<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a></li>
+</ul>
+<a id="more"></a>
+<h2 id="AFN的常用功能"><a href="#AFN的常用功能" class="headerlink" title="AFN的常用功能"></a>AFN的常用功能</h2><h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 网络接口</span></span><br><span class="line"><span class="built_in">NSString</span> *urlString = <span class="string">@"http://127.0.0.1/login/login.php"</span>;</span><br><span class="line"><span class="comment">// 要传的的参数</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;<span class="string">@"username"</span>:<span class="string">@"zhangsan"</span>,<span class="string">@"password"</span>:<span class="string">@"zhangsan"</span>&#125;;</span><br><span class="line"><span class="comment">// 实例化网络请求管理类. //不是单例</span></span><br><span class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</span><br><span class="line"><span class="comment">// 更改解析器类型.</span></span><br><span class="line"><span class="comment">// [AFHTTPResponseSerializer serializer] :实例化解析器.</span></span><br><span class="line">manager.responseSerializer = [AFHTTPResponseSerializer serializer];</span><br><span class="line"><span class="comment">// 发送GET请求.</span></span><br><span class="line">[manager GET:urlString parameters:dict progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</span><br><span class="line">	<span class="comment">//progress:进度;这个参数是 AFN 3.0 之后新增的参数; 对于普通网络请求没有用处!</span></span><br><span class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"成功回调: responseObject:%@"</span>,responseObject);</span><br><span class="line">    <span class="built_in">NSData</span> *data = responseObject;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[<span class="built_in">NSString</span> alloc] initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>]);</span><br><span class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</span><br><span class="line">    <span class="comment">// 注意: 这里的失败指的不是网络请求失败!</span></span><br><span class="line">    <span class="comment">// 一般的失败都是 服务器返回的数据类型 跟 解析器类型不对号!</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"失败回调:error:%@"</span>,error);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里的解析器<code>responseSerializer</code>有三类：<ul>
+<li>AFJSONResponseSerializer : JSON解析器. 就是默认的解析器类型。如果后台返回的是JSON数据, 那么成功回调的<code>responseObject</code>就是解析之后的OC对象.</li>
+<li>AFXMLParserResponseSerializer : XML解析器。如果后台的返回的是XML数据,可以使用这个解析器。但是:这个解析器只会将 XML 数据包装成NSXMLParser的类型,还需要自己手动SAX解析。</li>
+<li>AFHTTPResponseSerializer : 万(无)能的解析器类型. 不管什么数据的类型都能够进入成功回调.不解析后台数据!成功回调的<code>responseObject</code>是二进制数据(NSData)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 网络接口</span></span><br><span class="line"><span class="built_in">NSString</span> *urlString = <span class="string">@"http://127.0.0.1/login/login.php"</span>;</span><br><span class="line"><span class="comment">// 要传的的参数</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;<span class="string">@"username"</span>:<span class="string">@"zhangsan"</span>,<span class="string">@"password"</span>:<span class="string">@"zhangsan"</span>&#125;;</span><br><span class="line"><span class="comment">// 实例化网络请求管理类. //不是单例</span></span><br><span class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</span><br><span class="line"><span class="comment">// POST 请求</span></span><br><span class="line">[manager POST:urlString parameters:dict progress:^(<span class="built_in">NSProgress</span> * _Nonnull uploadProgress) &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</span><br><span class="line">	<span class="built_in">NSLog</span>(<span class="string">@"responseObject:%@"</span>,responseObject);</span><br><span class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解析器的类型与设置方法与GET方法一致，这里将不再赘述。</li>
+</ul>
+<h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//网络接口</span></span><br><span class="line"><span class="built_in">NSString</span> *urlString = <span class="string">@"http://127.0.0.1/upload/upload.php"</span>;</span><br><span class="line"><span class="comment">//要上传的文件路径</span></span><br><span class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"file:///Users/chaselan/Desktop/123.zip"</span>];</span><br><span class="line"><span class="comment">// 文件上传.</span></span><br><span class="line"><span class="comment">// 网络请求管理类</span></span><br><span class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</span><br><span class="line"><span class="comment">// 上传的 POST 请求</span></span><br><span class="line">[manager POST:urlString parameters:<span class="literal">nil</span> constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt;  _Nonnull formData) &#123;</span><br><span class="line">	<span class="comment">// formData :就是请求体格式.</span></span><br><span class="line">	<span class="comment">// 参数:</span></span><br><span class="line">	<span class="comment">// 1. FileURL :需要上传的文件的本地路径.</span></span><br><span class="line">	<span class="comment">// 2. name : 服务器接收文件参数的 key 值.一般由后端人员给出</span></span><br><span class="line">	<span class="comment">// 3. fileName :上传文件在服务器中保存的名称.</span></span><br><span class="line">	<span class="comment">// 4. mimeType :上传文件的类型.可以随便填，尽量填写规范的类型</span></span><br><span class="line">	<span class="comment">// 5. error :NULL</span></span><br><span class="line">	[formData appendPartWithFileURL:url name:<span class="string">@"userfile"</span> fileName:<span class="string">@"789"</span> mimeType:<span class="string">@"ooo"</span> error:<span class="literal">NULL</span>];</span><br><span class="line">&#125; progress:^(<span class="built_in">NSProgress</span> * _Nonnull uploadProgress) &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</span><br><span class="line">	<span class="built_in">NSLog</span>(<span class="string">@"responseObject:%@"</span>,responseObject);</span><br><span class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：AFN不支持多文件上传，但是用AFN可以实现多文件上传。</li>
+<li>AFN的多文件上传：一个文件对应一个请求,请求按顺序或者同时发送!</li>
+<li>自己封装的多文件上传：一个请求上传多个文件。(自己封装的多文件上传请见之前的博客<a href="http://chaselan.com/2016/04/26/一句代码实现POST:GET请求以及多文件上传\(OC\">一句代码实现POST/GET请求以及多文件上传(OC)</a>))。</li>
+</ul>
+<h3 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//网络接口</span></span><br><span class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://127.0.0.1/dawenjian.zip"</span>];</span><br><span class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</span><br><span class="line"><span class="comment">//设置网络会话配置</span></span><br><span class="line"><span class="built_in">NSURLSessionConfiguration</span> *cgf = [<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration];</span><br><span class="line"><span class="comment">// 1.实例化 AFURLSessionManager 对象.</span></span><br><span class="line">AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:cgf];</span><br><span class="line"><span class="comment">// 2. 实例化 downloadTask</span></span><br><span class="line"><span class="built_in">NSURLSessionDownloadTask</span> *task = [manager downloadTaskWithRequest:request progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</span><br><span class="line">	<span class="comment">// downloadProgress :直接使用 downloadProgress 不能得到下载进度,需要转换成 float 类型.</span></span><br><span class="line">	<span class="comment">// downloadProgress.fractionCompleted 就是想要的 float(double) 类型.</span></span><br><span class="line">	<span class="built_in">NSLog</span>(<span class="string">@"下载进度:%f"</span>,downloadProgress.fractionCompleted);</span><br><span class="line">&#125; destination:^<span class="built_in">NSURL</span> * _Nonnull(<span class="built_in">NSURL</span> * _Nonnull targetPath, <span class="built_in">NSURLResponse</span> * _Nonnull response) &#123;</span><br><span class="line">	<span class="comment">// 用来确定 文件下载完毕之后的保存地址的!</span></span><br><span class="line">    <span class="comment">// targetPath :文件默认的下载路径! 沙盒路径的tmp文件夹中。</span></span><br><span class="line">    <span class="comment">// return之后会自动将tmp中的文件删掉，所以需要在return之前将文件存到自己想要存的路径</span></span><br><span class="line">	<span class="built_in">NSLog</span>(<span class="string">@"targetPath:%@"</span>,targetPath);</span><br><span class="line">	<span class="keyword">return</span> targetPath;</span><br><span class="line">&#125; completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nonnull response, <span class="built_in">NSURL</span> * _Nullable filePath, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"filePath:%@"</span>,filePath);</span><br><span class="line">&#125;];</span><br><span class="line"><span class="comment">// 3. 开启</span></span><br><span class="line">[task resume];</span><br></pre></td></tr></table></figure>
+<p>转载请注明出处！</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AFN/" rel="tag">#AFN</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2016/05/04/IP、子网掩码、缺省网关-默认网关、DNS、服务器、端口的总结-转.html" rel="next" title="IP、子网掩码、缺省网关/默认网关、DNS、服务器、端口的总结(转)">
+                <i class="fa fa-chevron-left"></i> IP、子网掩码、缺省网关/默认网关、DNS、服务器、端口的总结(转)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2016/05/06/SDWebImage框架分析.html" rel="prev" title="SDWebImage框架分析">
+                SDWebImage框架分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="/blog/2016/05/04/AFN的简单使用.html"
+           data-title="AFN的简单使用" data-url="http://chaselan.com/blog/2016/05/04/AFN的简单使用.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Chasel An" />
+          <p class="site-author-name" itemprop="name">Chasel An</p>
+          <p class="site-description motion-element" itemprop="description">相遇，相知。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ChaselAn" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2093067257/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是AFN"><span class="nav-number">1.</span> <span class="nav-text">什么是AFN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AFN的常用功能"><span class="nav-number">2.</span> <span class="nav-text">AFN的常用功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET请求"><span class="nav-number">2.1.</span> <span class="nav-text">GET请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST请求"><span class="nav-number">2.2.</span> <span class="nav-text">POST请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传文件"><span class="nav-number">2.3.</span> <span class="nav-text">上传文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件"><span class="nav-number">2.4.</span> <span class="nav-text">下载文件</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chasel An</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chaselan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

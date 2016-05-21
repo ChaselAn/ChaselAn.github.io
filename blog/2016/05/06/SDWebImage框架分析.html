@@ -1,0 +1,755 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="SDWebImage," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="什么是SDWebImage
+SDWebImage是iOS中著名的网络图片处理框架
+包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等
+用法极其简单，功能十分强大，大大提高了网络图片的处理效率
+国内超过90%的iOS项目都有它的影子
+框架地址：https://github.com/rs/SDWebImage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SDWebImage框架分析">
+<meta property="og:url" content="http://chaselan.com/blog/2016/05/06/SDWebImage框架分析.html">
+<meta property="og:site_name" content="ChaselAn's blog">
+<meta property="og:description" content="什么是SDWebImage
+SDWebImage是iOS中著名的网络图片处理框架
+包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等
+用法极其简单，功能十分强大，大大提高了网络图片的处理效率
+国内超过90%的iOS项目都有它的影子
+框架地址：https://github.com/rs/SDWebImage">
+<meta property="og:image" content="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png">
+<meta property="og:updated_time" content="2016-05-06T15:48:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SDWebImage框架分析">
+<meta name="twitter:description" content="什么是SDWebImage
+SDWebImage是iOS中著名的网络图片处理框架
+包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等
+用法极其简单，功能十分强大，大大提高了网络图片的处理效率
+国内超过90%的iOS项目都有它的影子
+框架地址：https://github.com/rs/SDWebImage">
+<meta name="twitter:image" content="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> SDWebImage框架分析 | ChaselAn's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ChaselAn's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '-o3cSPoymBQobPJj6xLk','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SDWebImage框架分析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-06T08:09:59+08:00" content="2016-05-06">
+              2016-05-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS第三方框架/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS第三方框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/blog/2016/05/06/SDWebImage框架分析.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2016/05/06/SDWebImage框架分析.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是SDWebImage"><a href="#什么是SDWebImage" class="headerlink" title="什么是SDWebImage"></a>什么是SDWebImage</h2><ul>
+<li>SDWebImage是iOS中著名的网络图片处理框架</li>
+<li>包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等</li>
+<li>用法极其简单，功能十分强大，大大提高了网络图片的处理效率</li>
+<li>国内超过90%的iOS项目都有它的影子</li>
+<li>框架地址：<a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">https://github.com/rs/SDWebImage</a></li>
+</ul>
+<a id="more"></a>
+<h2 id="关于SDWebImage的常见问题"><a href="#关于SDWebImage的常见问题" class="headerlink" title="关于SDWebImage的常见问题"></a>关于SDWebImage的常见问题</h2><p>1&gt; 图片文件缓存的时间有多长：<code>1周</code></p>
+<p><code>_maxCacheAge ＝ kDefaultCacheMaxCacheAge</code></p>
+<p>2&gt; SDWebImage 的内存缓存是用什么实现的？</p>
+<p><code>NSCache</code></p>
+<p>3&gt; SDWebImage 的最大并发数是多少？</p>
+<p><code>maxConcurrentDownloads ＝ 6</code></p>
+<p>4&gt; SDWebImage 支持动图吗？GIF</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;ImageIO/ImageIO.h&gt;</span></span></span><br><span class="line">[<span class="built_in">UIImage</span> animatedImageWithImages:images duration:duration];</span><br></pre></td></tr></table></figure>
+<p>5&gt; SDWebImage是如何区分不同格式的图像的</p>
+<ul>
+<li>根据图像数据第一个字节来判断的！<ul>
+<li>PNG：0x89</li>
+<li>JPG：0xFF</li>
+<li>GIF：0x47</li>
+</ul>
+</li>
+</ul>
+<p>6&gt; SDWebImage 缓存图片的名称是怎么确定的！</p>
+<ul>
+<li><code>md5</code><ul>
+<li>如果单纯使用 文件名保存，重名的几率很高！</li>
+<li>使用 MD5 的散列函数！对完整的 URL 进行 md5，结果是一个 32 个字符长度的字符串！</li>
+</ul>
+</li>
+</ul>
+<p>7&gt; SDWebImage 的内存警告是如何处理的！</p>
+<ul>
+<li>利用通知中心观察</li>
+<li><code>- UIApplicationDidReceiveMemoryWarningNotification</code> 接收到内存警告的通知<ul>
+<li>执行 <code>clearMemory</code> 方法，清理内存缓存！</li>
+</ul>
+</li>
+<li><code>- UIApplicationWillTerminateNotification</code> 接收到应用程序将要终止通知<ul>
+<li>执行 <code>cleanDisk</code> 方法，清理磁盘缓存！</li>
+</ul>
+</li>
+<li><code>- UIApplicationDidEnterBackgroundNotification</code> 接收到应用程序进入后台通知<ul>
+<li>执行 <code>backgroundCleanDisk</code> 方法，后台清理磁盘！</li>
+<li>通过以上通知监听，能够保证缓存文件的大小始终在控制范围之内！</li>
+<li><code>clearDisk</code> 清空磁盘缓存，将所有缓存目录中的文件，全部删除！实际工作，将缓存目录直接删除，再次创建一个同名空目录！</li>
+</ul>
+</li>
+</ul>
+<h2 id="分析SDWebImage的下载操作"><a href="#分析SDWebImage的下载操作" class="headerlink" title="分析SDWebImage的下载操作"></a>分析SDWebImage的下载操作</h2><p><img src="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png" alt=""></p>
+<ul>
+<li>以tableView加载图片为例。</li>
+<li>首先控制器拿到模型数据，传递给cell（<code>UIImageView</code>在cell中），cell拿到模型取出图片地址（图片的下载地址<code>URLString</code>保存在模型的属性中）。</li>
+<li><code>UIImageView</code>只是个视图，只负责展示，不能进行下载。所以<code>UIImageView</code>找了一个单例（图像下载管理器单例）去下载。也就是<code>UIImageView</code>的分类集成了一个图像下载管理器单例，来负责图片的下载和缓存。</li>
+<li>但是单例是继承自<code>NSObject</code>的，并没有下载功能。所以单例去找了图像下载操作（操作指的是<code>NSOperation</code>）去下载，相当于单例集成了图像下载操作。真正的下载是在图像下载操作中。</li>
+</ul>
+<h2 id="SDWebImage为什么这么设计？"><a href="#SDWebImage为什么这么设计？" class="headerlink" title="SDWebImage为什么这么设计？"></a>SDWebImage为什么这么设计？</h2><ul>
+<li>为了解耦！</li>
+<li>控制器只需要只要UIImageView的存在就行了，只告诉<code>UIImageView</code>一个地址，让它去下载，下载过程控制器并不关心。</li>
+<li><code>UIImageView</code>不具备下载功能，所以找了单例去下载，<code>UIImageView</code>仅仅只知道单例的存在，不关心单例如何去下载。<code>UIImageView</code>只需让单例去下载然后把图片传给它就行了，然后展示出来。</li>
+<li>但是单例也不能进行下载，它仅仅继承自<code>NSObject</code>，没有下载功能。单例就继承了图像下载操作，将下载的地址告诉图像下载操作。</li>
+<li>图像下载操作将图片下载完毕之后，将图片对象回调给单例。单例拿到图片就传给<code>UIImageView</code>，<code>UIImageView</code>拿到图片就展示出来。</li>
+</ul>
+<h2 id="SDWebImage的常用方法"><a href="#SDWebImage的常用方法" class="headerlink" title="SDWebImage的常用方法"></a>SDWebImage的常用方法</h2><h3 id="下载普通图片"><a href="#下载普通图片" class="headerlink" title="下载普通图片"></a>下载普通图片</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.imageView sd_setImageWithURL:URL placeholderImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"user_default"</span>]];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>URL：图片的下载地址</li>
+<li>placholderImage：占位图（图片因为网络延迟，下载完成之前显示的图片）</li>
+<li>此方法是UIImageView的分类方法。根据图片地址下载普通图片，并赋值给UIImageView.image。</li>
+</ul>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SDWebImage/" rel="tag">#SDWebImage</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2016/05/04/AFN的简单使用.html" rel="next" title="AFN的简单使用">
+                <i class="fa fa-chevron-left"></i> AFN的简单使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2016/05/06/FMDB框架总结.html" rel="prev" title="FMDB框架总结">
+                FMDB框架总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="/blog/2016/05/06/SDWebImage框架分析.html"
+           data-title="SDWebImage框架分析" data-url="http://chaselan.com/blog/2016/05/06/SDWebImage框架分析.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Chasel An" />
+          <p class="site-author-name" itemprop="name">Chasel An</p>
+          <p class="site-description motion-element" itemprop="description">相遇，相知。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ChaselAn" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2093067257/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是SDWebImage"><span class="nav-number">1.</span> <span class="nav-text">什么是SDWebImage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于SDWebImage的常见问题"><span class="nav-number">2.</span> <span class="nav-text">关于SDWebImage的常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析SDWebImage的下载操作"><span class="nav-number">3.</span> <span class="nav-text">分析SDWebImage的下载操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDWebImage为什么这么设计？"><span class="nav-number">4.</span> <span class="nav-text">SDWebImage为什么这么设计？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDWebImage的常用方法"><span class="nav-number">5.</span> <span class="nav-text">SDWebImage的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载普通图片"><span class="nav-number">5.1.</span> <span class="nav-text">下载普通图片</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chasel An</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chaselan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
