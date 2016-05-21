@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="弹出菜单," />
+  <meta name="keywords" content="SDWebImage," />
 
 
 
@@ -80,18 +80,33 @@
 
 
 
-<meta name="description" content="用OC做的小Demo，模仿qq的弹出菜单">
+<meta name="description" content="什么是SDWebImage
+SDWebImage是iOS中著名的网络图片处理框架
+包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等
+用法极其简单，功能十分强大，大大提高了网络图片的处理效率
+国内超过90%的iOS项目都有它的影子
+框架地址：https://github.com/rs/SDWebImage">
 <meta property="og:type" content="article">
-<meta property="og:title" content="仿qq弹出菜单(OC)">
-<meta property="og:url" content="http://chaselan.com/blog/2016/05/06/仿qq弹出菜单-OC.html">
+<meta property="og:title" content="SDWebImage框架分析">
+<meta property="og:url" content="http://chaselan.com/blog/2016/05/06/undefined.html">
 <meta property="og:site_name" content="ChaselAn's blog">
-<meta property="og:description" content="用OC做的小Demo，模仿qq的弹出菜单">
-<meta property="og:image" content="http://7xte1z.com2.z0.glb.clouddn.com/%E4%BB%BFqq%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2.gif">
-<meta property="og:updated_time" content="2016-05-06T15:37:57.000Z">
+<meta property="og:description" content="什么是SDWebImage
+SDWebImage是iOS中著名的网络图片处理框架
+包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等
+用法极其简单，功能十分强大，大大提高了网络图片的处理效率
+国内超过90%的iOS项目都有它的影子
+框架地址：https://github.com/rs/SDWebImage">
+<meta property="og:image" content="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png">
+<meta property="og:updated_time" content="2016-05-06T15:48:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="仿qq弹出菜单(OC)">
-<meta name="twitter:description" content="用OC做的小Demo，模仿qq的弹出菜单">
-<meta name="twitter:image" content="http://7xte1z.com2.z0.glb.clouddn.com/%E4%BB%BFqq%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2.gif">
+<meta name="twitter:title" content="SDWebImage框架分析">
+<meta name="twitter:description" content="什么是SDWebImage
+SDWebImage是iOS中著名的网络图片处理框架
+包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等
+用法极其简单，功能十分强大，大大提高了网络图片的处理效率
+国内超过90%的iOS项目都有它的影子
+框架地址：https://github.com/rs/SDWebImage">
+<meta name="twitter:image" content="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png">
 
 
 
@@ -109,7 +124,7 @@
   };
 </script>
 
-  <title> 仿qq弹出菜单(OC) | ChaselAn's blog </title>
+  <title> SDWebImage框架分析 | ChaselAn's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +294,7 @@
             
             
               
-                仿qq弹出菜单(OC)
+                SDWebImage框架分析
               
             
           </h1>
@@ -291,7 +306,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-06T23:12:10+08:00" content="2016-05-06">
+            <time itemprop="dateCreated" datetime="2016-05-06T08:09:59+08:00" content="2016-05-06">
               2016-05-06
             </time>
           </span>
@@ -305,8 +320,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS代码库/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS代码库</span>
+                  <a href="/categories/iOS第三方框架/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS第三方框架</span>
                   </a>
                 </span>
 
@@ -321,8 +336,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/blog/2016/05/06/仿qq弹出菜单-OC.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2016/05/06/仿qq弹出菜单-OC.html" itemprop="commentsCount"></span>
+                <a href="/blog/2016/05/06/undefined.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2016/05/06/undefined.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -345,16 +360,77 @@
       
 
       
-        <ul>
-<li>仿贴吧的侧滑界面。就是qq之后，消息列表界面右上角的加号按钮的功能。</li>
-<li>具体功能如下图所示：</li>
+        <h2 id="什么是SDWebImage"><a href="#什么是SDWebImage" class="headerlink" title="什么是SDWebImage"></a>什么是SDWebImage</h2><ul>
+<li>SDWebImage是iOS中著名的网络图片处理框架</li>
+<li>包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等</li>
+<li>用法极其简单，功能十分强大，大大提高了网络图片的处理效率</li>
+<li>国内超过90%的iOS项目都有它的影子</li>
+<li>框架地址：<a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">https://github.com/rs/SDWebImage</a></li>
 </ul>
-<p><img src="http://7xte1z.com2.z0.glb.clouddn.com/%E4%BB%BFqq%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2.gif" alt=""></p>
+<a id="more"></a>
+<h2 id="关于SDWebImage的常见问题"><a href="#关于SDWebImage的常见问题" class="headerlink" title="关于SDWebImage的常见问题"></a>关于SDWebImage的常见问题</h2><p>1&gt; 图片文件缓存的时间有多长：<code>1周</code></p>
+<p><code>_maxCacheAge ＝ kDefaultCacheMaxCacheAge</code></p>
+<p>2&gt; SDWebImage 的内存缓存是用什么实现的？</p>
+<p><code>NSCache</code></p>
+<p>3&gt; SDWebImage 的最大并发数是多少？</p>
+<p><code>maxConcurrentDownloads ＝ 6</code></p>
+<p>4&gt; SDWebImage 支持动图吗？GIF</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;ImageIO/ImageIO.h&gt;</span></span></span><br><span class="line">[<span class="built_in">UIImage</span> animatedImageWithImages:images duration:duration];</span><br></pre></td></tr></table></figure>
+<p>5&gt; SDWebImage是如何区分不同格式的图像的</p>
 <ul>
-<li>相关代码请前往我的<a href="https://github.com/ChaselAn/ACPop-menu" target="_blank" rel="external">Github仿qq弹出菜单</a>下载。</li>
-<li>拓展性不是很好，就没有做成框架，仅仅是个小demo。</li>
+<li>根据图像数据第一个字节来判断的！<ul>
+<li>PNG：0x89</li>
+<li>JPG：0xFF</li>
+<li>GIF：0x47</li>
 </ul>
-<p>转载请注明出处！</p>
+</li>
+</ul>
+<p>6&gt; SDWebImage 缓存图片的名称是怎么确定的！</p>
+<ul>
+<li><code>md5</code><ul>
+<li>如果单纯使用 文件名保存，重名的几率很高！</li>
+<li>使用 MD5 的散列函数！对完整的 URL 进行 md5，结果是一个 32 个字符长度的字符串！</li>
+</ul>
+</li>
+</ul>
+<p>7&gt; SDWebImage 的内存警告是如何处理的！</p>
+<ul>
+<li>利用通知中心观察</li>
+<li><code>- UIApplicationDidReceiveMemoryWarningNotification</code> 接收到内存警告的通知<ul>
+<li>执行 <code>clearMemory</code> 方法，清理内存缓存！</li>
+</ul>
+</li>
+<li><code>- UIApplicationWillTerminateNotification</code> 接收到应用程序将要终止通知<ul>
+<li>执行 <code>cleanDisk</code> 方法，清理磁盘缓存！</li>
+</ul>
+</li>
+<li><code>- UIApplicationDidEnterBackgroundNotification</code> 接收到应用程序进入后台通知<ul>
+<li>执行 <code>backgroundCleanDisk</code> 方法，后台清理磁盘！</li>
+<li>通过以上通知监听，能够保证缓存文件的大小始终在控制范围之内！</li>
+<li><code>clearDisk</code> 清空磁盘缓存，将所有缓存目录中的文件，全部删除！实际工作，将缓存目录直接删除，再次创建一个同名空目录！</li>
+</ul>
+</li>
+</ul>
+<h2 id="分析SDWebImage的下载操作"><a href="#分析SDWebImage的下载操作" class="headerlink" title="分析SDWebImage的下载操作"></a>分析SDWebImage的下载操作</h2><p><img src="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png" alt=""></p>
+<ul>
+<li>以tableView加载图片为例。</li>
+<li>首先控制器拿到模型数据，传递给cell（<code>UIImageView</code>在cell中），cell拿到模型取出图片地址（图片的下载地址<code>URLString</code>保存在模型的属性中）。</li>
+<li><code>UIImageView</code>只是个视图，只负责展示，不能进行下载。所以<code>UIImageView</code>找了一个单例（图像下载管理器单例）去下载。也就是<code>UIImageView</code>的分类集成了一个图像下载管理器单例，来负责图片的下载和缓存。</li>
+<li>但是单例是继承自<code>NSObject</code>的，并没有下载功能。所以单例去找了图像下载操作（操作指的是<code>NSOperation</code>）去下载，相当于单例集成了图像下载操作。真正的下载是在图像下载操作中。</li>
+</ul>
+<h2 id="SDWebImage为什么这么设计？"><a href="#SDWebImage为什么这么设计？" class="headerlink" title="SDWebImage为什么这么设计？"></a>SDWebImage为什么这么设计？</h2><ul>
+<li>为了解耦！</li>
+<li>控制器只需要只要UIImageView的存在就行了，只告诉<code>UIImageView</code>一个地址，让它去下载，下载过程控制器并不关心。</li>
+<li><code>UIImageView</code>不具备下载功能，所以找了单例去下载，<code>UIImageView</code>仅仅只知道单例的存在，不关心单例如何去下载。<code>UIImageView</code>只需让单例去下载然后把图片传给它就行了，然后展示出来。</li>
+<li>但是单例也不能进行下载，它仅仅继承自<code>NSObject</code>，没有下载功能。单例就继承了图像下载操作，将下载的地址告诉图像下载操作。</li>
+<li>图像下载操作将图片下载完毕之后，将图片对象回调给单例。单例拿到图片就传给<code>UIImageView</code>，<code>UIImageView</code>拿到图片就展示出来。</li>
+</ul>
+<h2 id="SDWebImage的常用方法"><a href="#SDWebImage的常用方法" class="headerlink" title="SDWebImage的常用方法"></a>SDWebImage的常用方法</h2><h3 id="下载普通图片"><a href="#下载普通图片" class="headerlink" title="下载普通图片"></a>下载普通图片</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.imageView sd_setImageWithURL:URL placeholderImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"user_default"</span>]];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>URL：图片的下载地址</li>
+<li>placholderImage：占位图（图片因为网络延迟，下载完成之前显示的图片）</li>
+<li>此方法是UIImageView的分类方法。根据图片地址下载普通图片，并赋值给UIImageView.image。</li>
+</ul>
 
       
     </div>
@@ -375,7 +451,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/弹出菜单/" rel="tag">#弹出菜单</a>
+            <a href="/tags/SDWebImage/" rel="tag">#SDWebImage</a>
           
         </div>
       
@@ -384,16 +460,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2016/05/06/FMDB框架总结.html" rel="next" title="FMDB框架总结">
-                <i class="fa fa-chevron-left"></i> FMDB框架总结
+              <a href="/blog/2016/05/04/undefined.html" rel="next" title="AFN的简单使用">
+                <i class="fa fa-chevron-left"></i> AFN的简单使用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2016/05/08/Masonry的简单使用.html" rel="prev" title="Masonry的简单使用">
-                Masonry的简单使用 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2016/05/06/undefined.html" rel="prev" title="FMDB框架总结">
+                FMDB框架总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -420,8 +496,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="/blog/2016/05/06/仿qq弹出菜单-OC.html"
-           data-title="仿qq弹出菜单(OC)" data-url="http://chaselan.com/blog/2016/05/06/仿qq弹出菜单-OC.html">
+      <div class="ds-thread" data-thread-key="/blog/2016/05/06/undefined.html"
+           data-title="SDWebImage框架分析" data-url="http://chaselan.com/blog/2016/05/06/undefined.html">
       </div>
     
   </div>
@@ -528,7 +604,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是SDWebImage"><span class="nav-number">1.</span> <span class="nav-text">什么是SDWebImage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于SDWebImage的常见问题"><span class="nav-number">2.</span> <span class="nav-text">关于SDWebImage的常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析SDWebImage的下载操作"><span class="nav-number">3.</span> <span class="nav-text">分析SDWebImage的下载操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDWebImage为什么这么设计？"><span class="nav-number">4.</span> <span class="nav-text">SDWebImage为什么这么设计？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDWebImage的常用方法"><span class="nav-number">5.</span> <span class="nav-text">SDWebImage的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载普通图片"><span class="nav-number">5.1.</span> <span class="nav-text">下载普通图片</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
