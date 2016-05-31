@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SDWebImage," />
+  <meta name="keywords" content="token," />
 
 
 
@@ -80,33 +80,25 @@
 
 
 
-<meta name="description" content="什么是SDWebImage
-SDWebImage是iOS中著名的网络图片处理框架
-包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等
-用法极其简单，功能十分强大，大大提高了网络图片的处理效率
-国内超过90%的iOS项目都有它的影子
-框架地址：https://github.com/rs/SDWebImage">
+<meta name="description" content="以用户的登录为例来谈谈我对token的理解。
+什么是token？
+token其实就是登录令牌，是用来标识用户信息的唯一标识符。不会有两个相同的token值。
+可以理解为将用户信息通过算法形成了一个长字符串。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SDWebImage框架分析">
-<meta property="og:url" content="http://chaselan.com/blog/2016/05/06/sdwebimage.html">
+<meta property="og:title" content="对token的理解">
+<meta property="og:url" content="http://chaselan.com/blog/2015/06/28/token.html">
 <meta property="og:site_name" content="ChaselAn's blog">
-<meta property="og:description" content="什么是SDWebImage
-SDWebImage是iOS中著名的网络图片处理框架
-包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等
-用法极其简单，功能十分强大，大大提高了网络图片的处理效率
-国内超过90%的iOS项目都有它的影子
-框架地址：https://github.com/rs/SDWebImage">
-<meta property="og:image" content="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png">
-<meta property="og:updated_time" content="2016-05-21T13:05:41.000Z">
+<meta property="og:description" content="以用户的登录为例来谈谈我对token的理解。
+什么是token？
+token其实就是登录令牌，是用来标识用户信息的唯一标识符。不会有两个相同的token值。
+可以理解为将用户信息通过算法形成了一个长字符串。">
+<meta property="og:updated_time" content="2016-05-31T07:51:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SDWebImage框架分析">
-<meta name="twitter:description" content="什么是SDWebImage
-SDWebImage是iOS中著名的网络图片处理框架
-包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等
-用法极其简单，功能十分强大，大大提高了网络图片的处理效率
-国内超过90%的iOS项目都有它的影子
-框架地址：https://github.com/rs/SDWebImage">
-<meta name="twitter:image" content="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png">
+<meta name="twitter:title" content="对token的理解">
+<meta name="twitter:description" content="以用户的登录为例来谈谈我对token的理解。
+什么是token？
+token其实就是登录令牌，是用来标识用户信息的唯一标识符。不会有两个相同的token值。
+可以理解为将用户信息通过算法形成了一个长字符串。">
 
 
 
@@ -124,7 +116,7 @@ SDWebImage是iOS中著名的网络图片处理框架
   };
 </script>
 
-  <title> SDWebImage框架分析 | ChaselAn's blog </title>
+  <title> 对token的理解 | ChaselAn's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -294,7 +286,7 @@ SDWebImage是iOS中著名的网络图片处理框架
             
             
               
-                SDWebImage框架分析
+                对token的理解
               
             
           </h1>
@@ -306,8 +298,8 @@ SDWebImage是iOS中著名的网络图片处理框架
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-06T08:09:59+08:00" content="2016-05-06">
-              2016-05-06
+            <time itemprop="dateCreated" datetime="2015-06-28T21:31:37+08:00" content="2015-06-28">
+              2015-06-28
             </time>
           </span>
 
@@ -320,8 +312,8 @@ SDWebImage是iOS中著名的网络图片处理框架
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS第三方框架/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS第三方框架</span>
+                  <a href="/categories/iOS知识库/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS知识库</span>
                   </a>
                 </span>
 
@@ -336,8 +328,8 @@ SDWebImage是iOS中著名的网络图片处理框架
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/blog/2016/05/06/sdwebimage.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2016/05/06/sdwebimage.html" itemprop="commentsCount"></span>
+                <a href="/blog/2015/06/28/token.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2015/06/28/token.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -360,77 +352,46 @@ SDWebImage是iOS中著名的网络图片处理框架
       
 
       
-        <h2 id="什么是SDWebImage"><a href="#什么是SDWebImage" class="headerlink" title="什么是SDWebImage"></a>什么是SDWebImage</h2><ul>
-<li>SDWebImage是iOS中著名的网络图片处理框架</li>
-<li>包含的功能：图片下载、图片缓存、下载进度监听、gif处理等等</li>
-<li>用法极其简单，功能十分强大，大大提高了网络图片的处理效率</li>
-<li>国内超过90%的iOS项目都有它的影子</li>
-<li>框架地址：<a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">https://github.com/rs/SDWebImage</a></li>
+        <p>以用户的登录为例来谈谈我对token的理解。</p>
+<h3 id="什么是token？"><a href="#什么是token？" class="headerlink" title="什么是token？"></a>什么是token？</h3><ul>
+<li>token其实就是登录令牌，是用来标识用户信息的唯一标识符。不会有两个相同的token值。</li>
+<li>可以理解为将用户信息通过算法形成了一个长字符串。</li>
 </ul>
 <a id="more"></a>
-<h2 id="关于SDWebImage的常见问题"><a href="#关于SDWebImage的常见问题" class="headerlink" title="关于SDWebImage的常见问题"></a>关于SDWebImage的常见问题</h2><p>1&gt; 图片文件缓存的时间有多长：<code>1周</code></p>
-<p><code>_maxCacheAge ＝ kDefaultCacheMaxCacheAge</code></p>
-<p>2&gt; SDWebImage 的内存缓存是用什么实现的？</p>
-<p><code>NSCache</code></p>
-<p>3&gt; SDWebImage 的最大并发数是多少？</p>
-<p><code>maxConcurrentDownloads ＝ 6</code></p>
-<p>4&gt; SDWebImage 支持动图吗？GIF</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;ImageIO/ImageIO.h&gt;</span></span></span><br><span class="line">[<span class="built_in">UIImage</span> animatedImageWithImages:images duration:duration];</span><br></pre></td></tr></table></figure>
-<p>5&gt; SDWebImage是如何区分不同格式的图像的</p>
+<h3 id="token是什么时候生成的？"><a href="#token是什么时候生成的？" class="headerlink" title="token是什么时候生成的？"></a>token是什么时候生成的？</h3><ul>
+<li>用户登录成功之后,在服务器端就会生成一个token值.然后这个token值就会返回给客户端,同时在服务器也会保存这个token值。</li>
+<li>客户端获取到服务器的token值之后,会保存在本地(磁盘/沙盒:“永久化”保存)。</li>
+<li>服务器通过在判断在服务器端保存的token值来判断用户是否登录成功过。</li>
+</ul>
+<h3 id="什么时候会用到token？"><a href="#什么时候会用到token？" class="headerlink" title="什么时候会用到token？"></a>什么时候会用到token？</h3><p>如果用户登录成功过之后，也就服务器端已经有token值之后。用户再次通过客户端发送新的网路请求。</p>
 <ul>
-<li>根据图像数据第一个字节来判断的！<ul>
-<li>PNG：0x89</li>
-<li>JPG：0xFF</li>
-<li>GIF：0x47</li>
+<li>发送不需要用户信息的请求（比如说非登录状态下的浏览商品），这时服务器不需要判断用户是否登录。不会用到token。</li>
+<li>发送需要用户信息的请求(比如说登录之后的购买商品/添加到购物车),服务器需要判断用户是否登录成功过。此时会将token值作为判断用户信息的标准发送给服务器。服务器通过对比token值来确定用户是否需要再次登录。如果token值相同，就不需要再次通过填写用户名和密码再登录一遍。</li>
+</ul>
+<h3 id="token值什么时候会发生变化？"><a href="#token值什么时候会发生变化？" class="headerlink" title="token值什么时候会发生变化？"></a>token值什么时候会发生变化？</h3><ul>
+<li>token值是用户信息的唯一标识符，当用户信息发生改变的时候（比如说修改密码），token值就会发生改变。</li>
+<li>token值失效。token值是可以设置有效时间的。<ul>
+<li>新闻类或者游戏类的app的token值设置有效时间的很长，为了保留用户/简化登录流程。</li>
+<li>银行类或者支付类的token值有效时间会很短，一般在15分钟之内。比如你进入支付类的界面之后，离开了一段时间，再次支付需要重新登录，就是token值失效了。</li>
 </ul>
 </li>
 </ul>
-<p>6&gt; SDWebImage 缓存图片的名称是怎么确定的！</p>
+<h3 id="客户端token值与服务器端token值不同"><a href="#客户端token值与服务器端token值不同" class="headerlink" title="客户端token值与服务器端token值不同"></a>客户端token值与服务器端token值不同</h3><p>如果服务器和本地保存的token值不相同。</p>
 <ul>
-<li><code>md5</code><ul>
-<li>如果单纯使用 文件名保存，重名的几率很高！</li>
-<li>使用 MD5 的散列函数！对完整的 URL 进行 md5，结果是一个 32 个字符长度的字符串！</li>
+<li>token值不同：需要重新登录，会生成新的token值。</li>
+<li>token失效：也需要重新登录。</li>
 </ul>
-</li>
+<h3 id="服务器如何判断用户的“唯一性”登录？"><a href="#服务器如何判断用户的“唯一性”登录？" class="headerlink" title="服务器如何判断用户的“唯一性”登录？"></a>服务器如何判断用户的“唯一性”登录？</h3><ul>
+<li>如何让用户在一台设备上登录之后，其他设备就不允许登录？当然就是通过token值啦。</li>
+<li>设置token值失效。</li>
+<li>因为设备号不同，每次在不同设备登录成功之后，都会在服务器生成新的token值，原来的token值就失效了！</li>
 </ul>
-<p>7&gt; SDWebImage 的内存警告是如何处理的！</p>
+<h3 id="我们客户端需要做什么事情？"><a href="#我们客户端需要做什么事情？" class="headerlink" title="我们客户端需要做什么事情？"></a>我们客户端需要做什么事情？</h3><p>客户端需要将token值作为一个参数传递给服务器。</p>
 <ul>
-<li>利用通知中心观察</li>
-<li><code>- UIApplicationDidReceiveMemoryWarningNotification</code> 接收到内存警告的通知<ul>
-<li>执行 <code>clearMemory</code> 方法，清理内存缓存！</li>
+<li>手动添加token值参数：将token值作为一个谱图参数拼接在url后面/或者封装在请求体中。</li>
+<li>自动发送token：将token保存在cookie中,自动发送给服务器。不需要程序员管理.</li>
 </ul>
-</li>
-<li><code>- UIApplicationWillTerminateNotification</code> 接收到应用程序将要终止通知<ul>
-<li>执行 <code>cleanDisk</code> 方法，清理磁盘缓存！</li>
-</ul>
-</li>
-<li><code>- UIApplicationDidEnterBackgroundNotification</code> 接收到应用程序进入后台通知<ul>
-<li>执行 <code>backgroundCleanDisk</code> 方法，后台清理磁盘！</li>
-<li>通过以上通知监听，能够保证缓存文件的大小始终在控制范围之内！</li>
-<li><code>clearDisk</code> 清空磁盘缓存，将所有缓存目录中的文件，全部删除！实际工作，将缓存目录直接删除，再次创建一个同名空目录！</li>
-</ul>
-</li>
-</ul>
-<h2 id="分析SDWebImage的下载操作"><a href="#分析SDWebImage的下载操作" class="headerlink" title="分析SDWebImage的下载操作"></a>分析SDWebImage的下载操作</h2><p><img src="http://7xte1z.com2.z0.glb.clouddn.com/SDWebImage%E5%88%86%E6%9E%90.png" alt=""></p>
-<ul>
-<li>以tableView加载图片为例。</li>
-<li>首先控制器拿到模型数据，传递给cell（<code>UIImageView</code>在cell中），cell拿到模型取出图片地址（图片的下载地址<code>URLString</code>保存在模型的属性中）。</li>
-<li><code>UIImageView</code>只是个视图，只负责展示，不能进行下载。所以<code>UIImageView</code>找了一个单例（图像下载管理器单例）去下载。也就是<code>UIImageView</code>的分类集成了一个图像下载管理器单例，来负责图片的下载和缓存。</li>
-<li>但是单例是继承自<code>NSObject</code>的，并没有下载功能。所以单例去找了图像下载操作（操作指的是<code>NSOperation</code>）去下载，相当于单例集成了图像下载操作。真正的下载是在图像下载操作中。</li>
-</ul>
-<h2 id="SDWebImage为什么这么设计？"><a href="#SDWebImage为什么这么设计？" class="headerlink" title="SDWebImage为什么这么设计？"></a>SDWebImage为什么这么设计？</h2><ul>
-<li>为了解耦！</li>
-<li>控制器只需要只要UIImageView的存在就行了，只告诉<code>UIImageView</code>一个地址，让它去下载，下载过程控制器并不关心。</li>
-<li><code>UIImageView</code>不具备下载功能，所以找了单例去下载，<code>UIImageView</code>仅仅只知道单例的存在，不关心单例如何去下载。<code>UIImageView</code>只需让单例去下载然后把图片传给它就行了，然后展示出来。</li>
-<li>但是单例也不能进行下载，它仅仅继承自<code>NSObject</code>，没有下载功能。单例就继承了图像下载操作，将下载的地址告诉图像下载操作。</li>
-<li>图像下载操作将图片下载完毕之后，将图片对象回调给单例。单例拿到图片就传给<code>UIImageView</code>，<code>UIImageView</code>拿到图片就展示出来。</li>
-</ul>
-<h2 id="SDWebImage的常用方法"><a href="#SDWebImage的常用方法" class="headerlink" title="SDWebImage的常用方法"></a>SDWebImage的常用方法</h2><h3 id="下载普通图片"><a href="#下载普通图片" class="headerlink" title="下载普通图片"></a>下载普通图片</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.imageView sd_setImageWithURL:URL placeholderImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"user_default"</span>]];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>URL：图片的下载地址</li>
-<li>placholderImage：占位图（图片因为网络延迟，下载完成之前显示的图片）</li>
-<li>此方法是UIImageView的分类方法。根据图片地址下载普通图片，并赋值给UIImageView.image。</li>
-</ul>
+<p>转载请注明出处！</p>
 
       
     </div>
@@ -451,7 +412,7 @@ SDWebImage是iOS中著名的网络图片处理框架
       
         <div class="post-tags">
           
-            <a href="/tags/SDWebImage/" rel="tag">#SDWebImage</a>
+            <a href="/tags/token/" rel="tag">#token</a>
           
         </div>
       
@@ -460,16 +421,16 @@ SDWebImage是iOS中著名的网络图片处理框架
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2016/05/04/afn.html" rel="next" title="AFN的简单使用">
-                <i class="fa fa-chevron-left"></i> AFN的简单使用
+              <a href="/blog/2015/05/08/masonry.html" rel="next" title="Masonry的简单使用">
+                <i class="fa fa-chevron-left"></i> Masonry的简单使用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2016/05/06/fmdb.html" rel="prev" title="FMDB框架总结">
-                FMDB框架总结 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2015/08/06/sdwebimage.html" rel="prev" title="SDWebImage框架分析">
+                SDWebImage框架分析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -496,8 +457,8 @@ SDWebImage是iOS中著名的网络图片处理框架
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="/blog/2016/05/06/sdwebimage.html"
-           data-title="SDWebImage框架分析" data-url="http://chaselan.com/blog/2016/05/06/sdwebimage.html">
+      <div class="ds-thread" data-thread-key="/blog/2015/06/28/token.html"
+           data-title="对token的理解" data-url="http://chaselan.com/blog/2015/06/28/token.html">
       </div>
     
   </div>
@@ -608,7 +569,7 @@ SDWebImage是iOS中著名的网络图片处理框架
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是SDWebImage"><span class="nav-number">1.</span> <span class="nav-text">什么是SDWebImage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于SDWebImage的常见问题"><span class="nav-number">2.</span> <span class="nav-text">关于SDWebImage的常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析SDWebImage的下载操作"><span class="nav-number">3.</span> <span class="nav-text">分析SDWebImage的下载操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDWebImage为什么这么设计？"><span class="nav-number">4.</span> <span class="nav-text">SDWebImage为什么这么设计？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDWebImage的常用方法"><span class="nav-number">5.</span> <span class="nav-text">SDWebImage的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载普通图片"><span class="nav-number">5.1.</span> <span class="nav-text">下载普通图片</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是token？"><span class="nav-number">1.</span> <span class="nav-text">什么是token？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#token是什么时候生成的？"><span class="nav-number">2.</span> <span class="nav-text">token是什么时候生成的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候会用到token？"><span class="nav-number">3.</span> <span class="nav-text">什么时候会用到token？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#token值什么时候会发生变化？"><span class="nav-number">4.</span> <span class="nav-text">token值什么时候会发生变化？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端token值与服务器端token值不同"><span class="nav-number">5.</span> <span class="nav-text">客户端token值与服务器端token值不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器如何判断用户的“唯一性”登录？"><span class="nav-number">6.</span> <span class="nav-text">服务器如何判断用户的“唯一性”登录？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们客户端需要做什么事情？"><span class="nav-number">7.</span> <span class="nav-text">我们客户端需要做什么事情？</span></a></li></ol></div>
             
           </div>
         </section>
