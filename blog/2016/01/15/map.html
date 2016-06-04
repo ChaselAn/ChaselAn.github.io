@@ -1,82 +1,17 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion">
+<!DOCTYPE html>
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="地图与定位," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
-
-
-
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Chasel An" />
 
 
 
@@ -89,264 +24,285 @@
 <meta property="og:image" content="http://7xte1z.com1.z0.glb.clouddn.com/%E5%9C%B0%E5%9B%BEplist%E9%85%8D%E7%BD%AE.png">
 <meta property="og:image" content="http://7xte1z.com1.z0.glb.clouddn.com/%E5%9C%B0%E7%90%86%E7%BC%96%E7%A0%81.png">
 <meta property="og:image" content="http://7xte1z.com1.z0.glb.clouddn.com/%E5%8F%8D%E5%9C%B0%E7%90%86%E7%BC%96%E7%A0%81.png">
-<meta property="og:updated_time" content="2016-06-04T00:52:59.000Z">
+<meta property="og:updated_time" content="2016-06-04T08:32:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录定位与地图相关">
 <meta name="twitter:description" content="地图与定位用的不是特别多，为了防止忘记，记录一下相关的知识及其代码，以及iOS9之后的一些更新。">
 <meta name="twitter:image" content="http://7xte1z.com1.z0.glb.clouddn.com/%E5%9C%B0%E5%9B%BEplist%E9%85%8D%E7%BD%AE.png">
 
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
+    <link rel="alternative" href="/atom.xml" title="ChaselAn&#39;s blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>记录定位与地图相关 | ChaselAn&#39;s blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        open_in_new: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
     }
-  };
 </script>
 
-  <title> 记录定位与地图相关 | ChaselAn's blog </title>
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
 </head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Chasel An</a></h1>
+        </hgroup>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+        
 
-  
-
-
+        
 
 
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
 
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AFN/">AFN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FMDB/">FMDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IBDesignable/">IBDesignable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IBInspectable/">IBInspectable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Masonry/">Masonry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POST-GET/">POST/GET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RunLoop/">RunLoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDWebImage/">SDWebImage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/token/">token</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一句代码/">一句代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/侧滑/">侧滑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/地图与定位/">地图与定位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小技巧/">小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/弹出菜单/">弹出菜单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件上传/">文件上传</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
 
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">ChaselAn's blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
 </div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Chasel An</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Chasel An</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-记录定位与地图相关" class="article article-type-post" itemscope itemprop="blogPost">
   
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="#" class="st-search-show-outputs">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', '-o3cSPoymBQobPJj6xLk','2.0.0');
-</script>
-
-
-
+    <div class="article-meta">
+      <a href="/blog/2016/01/15/map.html" class="article-date">
+      <time datetime="2016-01-15T12:17:12.000Z" itemprop="datePublished">2016-01-15</time>
+</a>
     </div>
   
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+  <div class="article-inner">
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                记录定位与地图相关
-              
-            
-          </h1>
-        
+  
+    <h1 class="article-title" itemprop="name">
+      记录定位与地图相关
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-15T20:17:12+08:00" content="2016-01-15">
-              2016-01-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS知识库/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS知识库</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/blog/2016/01/15/map.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2016/01/15/map.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
       </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS知识库/">iOS知识库</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/地图与定位/">地图与定位</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
+          
         <ul>
 <li>地图与定位用的不是特别多，为了防止忘记，记录一下相关的知识及其代码，以及iOS9之后的一些更新。</li>
 </ul>
@@ -357,9 +313,9 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> CoreLocation</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 位置管理者对象</span></span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> manager: <span class="type">CLLocationManager</span> = <span class="type">CLLocationManager</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//判断当前设备系统是否是8.0以上，8.0新增用户授权</span></span><br><span class="line">        <span class="keyword">if</span> <span class="type">Double</span>(<span class="type">UIDevice</span>.currentDevice().systemVersion) &gt;= <span class="number">8.0</span> &#123;</span><br><span class="line">            <span class="comment">//            manager.requestAlwaysAuthorization()</span></span><br><span class="line">            <span class="comment">//当用户前台使用时才会授权，需要在info.plist文件中进行配置描述信息</span></span><br><span class="line">            manager.requestWhenInUseAuthorization()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//9.0新增临时后台定位，必须要配置plist文件，不配置会崩溃</span></span><br><span class="line">        <span class="keyword">if</span> <span class="type">Double</span>(<span class="type">UIDevice</span>.currentDevice().systemVersion) &gt;= <span class="number">9.0</span> &#123;</span><br><span class="line">            manager.allowsBackgroundLocationUpdates = <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 位置过滤 单位:米  100 表示当用户位置更新了100米后调用对应的代理方法</span></span><br><span class="line">        manager.distanceFilter = <span class="number">100</span></span><br><span class="line">        <span class="comment">// 期望精度 单位:米  100 :表示系统默认将100米看做同一个范围</span></span><br><span class="line">        manager.desiredAccuracy = <span class="number">100</span></span><br><span class="line">        manager.delegate = <span class="keyword">self</span></span><br><span class="line">        <span class="comment">// 开启定位</span></span><br><span class="line">        manager.startUpdatingLocation()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 比较两点之间的直线距离</span></span><br><span class="line">        compare()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">compare</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">let</span> localtion = <span class="type">CLLocation</span>(latitude: <span class="number">30</span>, longitude: <span class="number">120</span>)</span><br><span class="line">        <span class="keyword">let</span> localtion1 = <span class="type">CLLocation</span>(latitude: <span class="number">39</span>, longitude: <span class="number">115</span>)</span><br><span class="line">        <span class="keyword">let</span> <span class="built_in">distance</span> = localtion.distanceFromLocation(localtion1)</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">distance</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当定位到用户位置时更新，会一直定位，耗电</span></span><br><span class="line"><span class="comment">// locations:装着CLLocation对象的数组，一个CLLocation代表一个位置</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">CLLocationManagerDelegate</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])</span></span> &#123;</span><br><span class="line">        <span class="comment">// 停止定位  --省电，相当于只定位一次</span></span><br><span class="line">        <span class="comment">//    [manager stopUpdatingLocation];</span></span><br><span class="line">        <span class="built_in">print</span>(locations)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>配置信息：在Info.plist文件中添加如下配置<ul>
-<li>NSLocationAlwaysUsageDescription，value值可以为空</li>
-<li>NSLocationWhenInUseUsageDescription，value值可以为空</li>
-<li>Required background modes，是个数组</li>
+<li>NSLocationAlwaysUsageDescription，value值可以为空，manager.requestAlwaysAuthorization()时设置这个</li>
+<li>NSLocationWhenInUseUsageDescription，value值可以为空，manager.requestWhenInUseAuthorization()时设置这个</li>
+<li>Required background modes，是个数组，manager.allowsBackgroundLocationUpdates = true时设置这个</li>
 </ul>
 </li>
 </ul>
@@ -382,342 +338,238 @@
 <li>图中是输入经度为110纬度为40的详细地址</li>
 </ul>
 <p><img src="http://7xte1z.com1.z0.glb.clouddn.com/%E5%8F%8D%E5%9C%B0%E7%90%86%E7%BC%96%E7%A0%81.png" alt=""></p>
+<h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><h3 id="调用系统地图导航"><a href="#调用系统地图导航" class="headerlink" title="调用系统地图导航"></a>调用系统地图导航</h3><ul>
+<li>调用系统的地图来导航不需要MapKitView控件，也不需要请求授权</li>
+<li>先写MKMapItem.openMapsWithItems([currentMapItem,mapItem], launchOptions: options)这个方法，根据参数推导其他代码</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> MapKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> inputTextField: <span class="type">UITextField</span>!</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">beginBtnClick</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> geocoder = <span class="type">CLGeocoder</span>()</span><br><span class="line">        <span class="comment">//地理编码获得终点的地标</span></span><br><span class="line">        geocoder.geocodeAddressString(inputTextField.text!) &#123; (clPlacemarks, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 获取起点的item</span></span><br><span class="line">            <span class="keyword">let</span> currentMapItem = <span class="type">MKMapItem</span>.mapItemForCurrentLocation()</span><br><span class="line">            <span class="keyword">let</span> mkPlacemark = <span class="type">MKPlacemark</span>(placemark: (clPlacemarks?.first)!)</span><br><span class="line">            <span class="comment">// 获取终点的item</span></span><br><span class="line">            <span class="keyword">let</span> mapItem = <span class="type">MKMapItem</span>(placemark: mkPlacemark)</span><br><span class="line">            </span><br><span class="line">            <span class="comment">/*</span><br><span class="line">             MKLaunchOptionsDirectionsModeKey</span><br><span class="line">             MKLaunchOptionsMapTypeKey</span><br><span class="line">             MKLaunchOptionsShowsTrafficKey</span><br><span class="line">             */</span></span><br><span class="line">            <span class="keyword">var</span> options:[<span class="type">String</span>: <span class="type">AnyObject</span>] = <span class="type">Dictionary</span>()</span><br><span class="line">            <span class="comment">/*</span><br><span class="line">             MKLaunchOptionsDirectionsModeDriving 驾车</span><br><span class="line">             MKLaunchOptionsDirectionsModeWalking 步行</span><br><span class="line">             MKLaunchOptionsDirectionsModeTransit 公共交通</span><br><span class="line">             */</span></span><br><span class="line">            <span class="comment">// 导航模式</span></span><br><span class="line">            options[<span class="type">MKLaunchOptionsDirectionsModeKey</span>] = <span class="type">MKLaunchOptionsDirectionsModeDriving</span></span><br><span class="line">            <span class="comment">// 地图类型</span></span><br><span class="line">            options[<span class="type">MKLaunchOptionsMapTypeKey</span>] = <span class="type">MKMapType</span>.<span class="type">Standard</span> <span class="keyword">as</span>? <span class="type">AnyObject</span>;</span><br><span class="line">            <span class="comment">// 是否显示交通状况</span></span><br><span class="line">            options[<span class="type">MKLaunchOptionsShowsTrafficKey</span>] = <span class="literal">true</span>;</span><br><span class="line">            <span class="comment">// 打开系统自带的地图去导航，先写这一句，根据参数推导上面的代码</span></span><br><span class="line">            <span class="type">MKMapItem</span>.openMapsWithItems([currentMapItem,mapItem], launchOptions: options)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="导航在自己的App上画线"><a href="#导航在自己的App上画线" class="headerlink" title="导航在自己的App上画线"></a>导航在自己的App上画线</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> MapKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> manager: <span class="type">CLLocationManager</span> = <span class="type">CLLocationManager</span>()</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> addressTextField: <span class="type">UITextField</span>!</span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> mapView: <span class="type">MKMapView</span>!</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">// 创建对象并请求授权</span></span><br><span class="line">        manager.requestWhenInUseAuthorization()</span><br><span class="line">        mapView.delegate = <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">drawLineBtnClick</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">//地理编码</span></span><br><span class="line">        <span class="keyword">let</span> geocoder = <span class="type">CLGeocoder</span>()</span><br><span class="line">        geocoder.geocodeAddressString(addressTextField.text ?? <span class="string">""</span>) &#123; (clPlacemarks, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> mkPlacemark = <span class="type">MKPlacemark</span>(placemark: clPlacemarks![<span class="number">0</span>])</span><br><span class="line">            <span class="keyword">let</span> currentMapItem = <span class="type">MKMapItem</span>.mapItemForCurrentLocation()</span><br><span class="line">            <span class="keyword">let</span> mapItem = <span class="type">MKMapItem</span>(placemark: mkPlacemark)</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">let</span> request = <span class="type">MKDirectionsRequest</span>()</span><br><span class="line">            <span class="comment">// 设置请求的起点</span></span><br><span class="line">            request.source = currentMapItem</span><br><span class="line">            <span class="comment">// 设置请求的终点</span></span><br><span class="line">            request.destination = mapItem</span><br><span class="line">            <span class="comment">// 创建方向对象</span></span><br><span class="line">            <span class="keyword">let</span> directs = <span class="type">MKDirections</span>(request: request)</span><br><span class="line">            <span class="comment">// 请求数据</span></span><br><span class="line">            directs.calculateDirectionsWithCompletionHandler &#123; (response, error) <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                    <span class="built_in">print</span>(error)</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 获取数据  polyline:折线</span></span><br><span class="line">                <span class="keyword">for</span> route <span class="keyword">in</span> (response?.routes)!&#123;</span><br><span class="line">                    <span class="comment">// 获取折线</span></span><br><span class="line">                    <span class="keyword">let</span> polyLine = route.polyline</span><br><span class="line">                    <span class="comment">// 添加到地图上  polyline必须要在下面的代理方法中设置渲染颜色</span></span><br><span class="line">                    <span class="comment">//默认是没颜色的，在地图上默认不显示</span></span><br><span class="line">                    <span class="keyword">self</span>.mapView.addOverlay(polyLine)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 当有覆盖物添加到地图上时调用</span></span><br><span class="line"><span class="comment">//overlay :添加的覆盖物</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">MKMapViewDelegate</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mapView</span><span class="params">(mapView: MKMapView, rendererForOverlay overlay: MKOverlay)</span></span> -&gt; <span class="type">MKOverlayRenderer</span> &#123;</span><br><span class="line">        <span class="comment">// 创建渲染对象</span></span><br><span class="line">        <span class="keyword">let</span> render = <span class="type">MKPolylineRenderer</span>(overlay: overlay)</span><br><span class="line">        render.strokeColor = <span class="type">UIColor</span>.greenColor()</span><br><span class="line">        <span class="keyword">return</span> render</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：polyLine折线是默认不带颜色的，不设置颜色在地图上不会显示，需要在代理方法中设置渲染颜色</li>
+</ul>
 <h2 id="仿iphone自带地图"><a href="#仿iphone自带地图" class="headerlink" title="仿iphone自带地图"></a>仿iphone自带地图</h2><h3 id="实现定位功能"><a href="#实现定位功能" class="headerlink" title="实现定位功能"></a>实现定位功能</h3><ul>
 <li>打开App就自动定位</li>
 <li>点击定位按钮，可以回到之前定位的位置</li>
 <li>点击放大，可以放大地图</li>
 <li>点击缩小，可以缩小地图</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> MapKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">ChangeDeltaType</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Bigger</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">Smaller</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> mapView: <span class="type">MKMapView</span>!</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> manager: <span class="type">CLLocationManager</span> = <span class="type">CLLocationManager</span>()</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">//获取授权</span></span><br><span class="line">        manager.requestWhenInUseAuthorization()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         Standard     标准地图</span><br><span class="line">         Satellite    卫星地图</span><br><span class="line">         Hybrid       鸟瞰地图（标准加卫星混合）</span><br><span class="line">         MKMapTypeSatelliteFlyover  iOS9新出的</span><br><span class="line">         MKMapTypeHybridFlyover   iOS9新出的</span><br><span class="line">         */</span></span><br><span class="line">        <span class="comment">//设置地图类型</span></span><br><span class="line">        mapView.mapType = .<span class="type">Standard</span></span><br><span class="line">        <span class="comment">// 实时的交通情况  iOS9新增方法</span></span><br><span class="line">        mapView.showsTraffic = <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 用户跟踪模式</span></span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         None  无</span><br><span class="line">         Follow 跟踪位置</span><br><span class="line">         FollowWithHeading 跟踪位置并跟踪方向</span><br><span class="line">         */</span></span><br><span class="line">        mapView.userTrackingMode = .<span class="type">Follow</span></span><br><span class="line">        mapView.delegate = <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 回到定位的按钮点击事件</span></span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">backToCurrentLocation</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">//        self.mapView.centerCoordinate = self.mapView.userLocation.location?.coordinate</span></span><br><span class="line">        <span class="comment">// 区域 region --两个结构体 center span</span></span><br><span class="line">        <span class="comment">// center 经度和纬度</span></span><br><span class="line">        <span class="comment">// span   经度跨度和纬度跨度</span></span><br><span class="line">        <span class="comment">// 当前区域的中心点经纬度</span></span><br><span class="line">        <span class="keyword">let</span> center = <span class="keyword">self</span>.mapView.userLocation.location?.coordinate</span><br><span class="line">        <span class="comment">// 当前区域的经纬度跨度   0.021251,0.016093是第一次打开地图定位完成后的跨度</span></span><br><span class="line">        <span class="keyword">let</span> span = <span class="type">MKCoordinateSpan</span>(latitudeDelta: <span class="number">0.021251</span>, longitudeDelta: <span class="number">0.016093</span>)</span><br><span class="line">        <span class="comment">// 确定区域</span></span><br><span class="line">        <span class="keyword">let</span> region = <span class="type">MKCoordinateRegion</span>(center: center!, span: span)</span><br><span class="line">        <span class="comment">//            self.mapView.region = region;</span></span><br><span class="line">        <span class="comment">// 加入系统动画</span></span><br><span class="line">        <span class="keyword">self</span>.mapView.setRegion(region, animated: <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 放大按钮的点击事件</span></span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">biggerMap</span><span class="params">()</span></span> &#123;</span><br><span class="line">        changeDelta(.<span class="type">Bigger</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 缩小按钮的点击事件</span></span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">smallerMap</span><span class="params">()</span></span> &#123;</span><br><span class="line">        changeDelta(.<span class="type">Smaller</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">changeDelta</span><span class="params">(type:ChangeDeltaType)</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> multiply = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">if</span> type == .<span class="type">Bigger</span> &#123;</span><br><span class="line">            multiply = <span class="number">0.5</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            multiply = <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 经纬度跨度</span></span><br><span class="line">        <span class="keyword">let</span> span = <span class="type">MKCoordinateSpan</span>(latitudeDelta: <span class="keyword">self</span>.mapView.region.span.latitudeDelta * multiply, longitudeDelta: <span class="keyword">self</span>.mapView.region.span.longitudeDelta * multiply)</span><br><span class="line">        <span class="comment">// 确定区域</span></span><br><span class="line">        <span class="keyword">self</span>.mapView.setRegion(<span class="type">MKCoordinateRegionMake</span>(<span class="keyword">self</span>.mapView.centerCoordinate, span), animated: <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">MKMapViewDelegate</span></span>&#123;</span><br><span class="line">    <span class="comment">// 当定位到用户位置时调用</span></span><br><span class="line">    <span class="comment">// userLocation:蓝色光圈</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mapView</span><span class="params">(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)</span></span> &#123;</span><br><span class="line">        <span class="comment">// 通过反地理编码获取具体地址</span></span><br><span class="line">        <span class="comment">// 创建对象</span></span><br><span class="line">        <span class="keyword">let</span> geocoder = <span class="type">CLGeocoder</span>()</span><br><span class="line">        <span class="comment">// 反地理编码</span></span><br><span class="line">        geocoder.reverseGeocodeLocation(userLocation.location!) &#123; (placemarks, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 标题--&gt;城市名</span></span><br><span class="line">            userLocation.title = placemarks![<span class="number">0</span>].locality</span><br><span class="line">            <span class="comment">// 子标题--&gt;具体地址</span></span><br><span class="line">            userLocation.subtitle = placemarks![<span class="number">0</span>].name</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 当区域改变时调用</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mapView</span><span class="params">(mapView: MKMapView, regionDidChangeAnimated animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"latitudeDalta:<span class="subst">\(mapView.region.span.latitudeDelta)</span>"</span> + <span class="string">"---longitudeDelta<span class="subst">\(mapView.region.span.longitudeDelta)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> MapKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">ChangeDeltaType</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Bigger</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">Smaller</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> mapView: <span class="type">MKMapView</span>!</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> manager: <span class="type">CLLocationManager</span> = <span class="type">CLLocationManager</span>()</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">//获取授权</span></span><br><span class="line">        manager.requestWhenInUseAuthorization()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         Standard     标准地图</span><br><span class="line">         Satellite    卫星地图</span><br><span class="line">         Hybrid       鸟瞰地图（标准加卫星混合）</span><br><span class="line">         MKMapTypeSatelliteFlyover  iOS9新出的</span><br><span class="line">         MKMapTypeHybridFlyover   iOS9新出的</span><br><span class="line">         */</span></span><br><span class="line">        <span class="comment">//设置地图类型</span></span><br><span class="line">        mapView.mapType = .<span class="type">Standard</span></span><br><span class="line">        <span class="comment">// 实时的交通情况  iOS9新增方法</span></span><br><span class="line">        mapView.showsTraffic = <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 用户跟踪模式</span></span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         None  无</span><br><span class="line">         Follow 跟踪位置</span><br><span class="line">         FollowWithHeading 跟踪位置并跟踪方向</span><br><span class="line">         */</span></span><br><span class="line">        mapView.userTrackingMode = .<span class="type">Follow</span></span><br><span class="line">        mapView.delegate = <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 回到定位的按钮点击事件</span></span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">backToCurrentLocation</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">//        self.mapView.centerCoordinate = self.mapView.userLocation.location?.coordinate</span></span><br><span class="line">        <span class="comment">// 区域 region --两个结构体 center span</span></span><br><span class="line">        <span class="comment">// center 经度和纬度</span></span><br><span class="line">        <span class="comment">// span   经度跨度和纬度跨度</span></span><br><span class="line">        <span class="comment">// 当前区域的中心点经纬度</span></span><br><span class="line">        <span class="keyword">let</span> center = <span class="keyword">self</span>.mapView.userLocation.location?.coordinate</span><br><span class="line">        <span class="comment">// 当前区域的经纬度跨度   </span></span><br><span class="line">        <span class="comment">// 0.021251,0.016093是第一次打开地图定位完成后的跨度，通过最下边的regionDidChangeAnimated方法打印得出</span></span><br><span class="line">        <span class="keyword">let</span> span = <span class="type">MKCoordinateSpan</span>(latitudeDelta: <span class="number">0.021251</span>, longitudeDelta: <span class="number">0.016093</span>)</span><br><span class="line">        <span class="comment">// 确定区域</span></span><br><span class="line">        <span class="keyword">let</span> region = <span class="type">MKCoordinateRegion</span>(center: center!, span: span)</span><br><span class="line">        <span class="comment">//            self.mapView.region = region;</span></span><br><span class="line">        <span class="comment">// 加入系统动画</span></span><br><span class="line">        <span class="keyword">self</span>.mapView.setRegion(region, animated: <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 放大按钮的点击事件</span></span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">biggerMap</span><span class="params">()</span></span> &#123;</span><br><span class="line">        changeDelta(.<span class="type">Bigger</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 缩小按钮的点击事件</span></span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">smallerMap</span><span class="params">()</span></span> &#123;</span><br><span class="line">        changeDelta(.<span class="type">Smaller</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">changeDelta</span><span class="params">(type:ChangeDeltaType)</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> multiply = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">if</span> type == .<span class="type">Bigger</span> &#123;</span><br><span class="line">            multiply = <span class="number">0.5</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            multiply = <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 经纬度跨度</span></span><br><span class="line">        <span class="keyword">let</span> span = <span class="type">MKCoordinateSpan</span>(latitudeDelta: <span class="keyword">self</span>.mapView.region.span.latitudeDelta * multiply, longitudeDelta: <span class="keyword">self</span>.mapView.region.span.longitudeDelta * multiply)</span><br><span class="line">        <span class="comment">// 确定区域</span></span><br><span class="line">        <span class="keyword">self</span>.mapView.setRegion(<span class="type">MKCoordinateRegionMake</span>(<span class="keyword">self</span>.mapView.centerCoordinate, span), animated: <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">MKMapViewDelegate</span></span>&#123;</span><br><span class="line">    <span class="comment">// 当定位到用户位置时调用</span></span><br><span class="line">    <span class="comment">// userLocation:蓝色光圈</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mapView</span><span class="params">(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)</span></span> &#123;</span><br><span class="line">        <span class="comment">// 通过反地理编码获取具体地址</span></span><br><span class="line">        <span class="comment">// 创建对象</span></span><br><span class="line">        <span class="keyword">let</span> geocoder = <span class="type">CLGeocoder</span>()</span><br><span class="line">        <span class="comment">// 反地理编码</span></span><br><span class="line">        geocoder.reverseGeocodeLocation(userLocation.location!) &#123; (placemarks, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 标题--&gt;城市名</span></span><br><span class="line">            userLocation.title = placemarks![<span class="number">0</span>].locality</span><br><span class="line">            <span class="comment">// 子标题--&gt;具体地址</span></span><br><span class="line">            userLocation.subtitle = placemarks![<span class="number">0</span>].name</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 当区域改变时调用</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mapView</span><span class="params">(mapView: MKMapView, regionDidChangeAnimated animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"latitudeDalta:<span class="subst">\(mapView.region.span.latitudeDelta)</span>"</span> + <span class="string">"---longitudeDelta<span class="subst">\(mapView.region.span.longitudeDelta)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="添加大头针"><a href="#添加大头针" class="headerlink" title="添加大头针"></a>添加大头针</h3><ul>
 <li>添加一个MKPinAnnotationView的大头针</li>
 <li>MKPointAnnotationView 默认无界面，能显示图片</li>
 <li>MKPinAnnotationView默认有界面，不能显示图片，只能显示系统样式</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> MapKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> mapView: <span class="type">MKMapView</span>!</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> manager:<span class="type">CLLocationManager</span> = <span class="type">CLLocationManager</span>()</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">// 请求用户授权</span></span><br><span class="line">        manager.requestWhenInUseAuthorization()</span><br><span class="line">        <span class="comment">// 设置用户跟踪模式</span></span><br><span class="line">        <span class="keyword">self</span>.mapView.userTrackingMode = .<span class="type">Follow</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> annotation = <span class="type">MKPointAnnotation</span>()</span><br><span class="line">        annotation.coordinate = <span class="type">CLLocationCoordinate2DMake</span>(<span class="number">39</span>, <span class="number">116</span>)</span><br><span class="line">        annotation.title = <span class="string">"我是标题"</span></span><br><span class="line">        annotation.subtitle = <span class="string">"我是子标题"</span></span><br><span class="line">        <span class="keyword">self</span>.mapView.addAnnotation(annotation)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 设置代理</span></span><br><span class="line">        <span class="keyword">self</span>.mapView.delegate = <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">        <span class="comment">// 获取用户点击的位置</span></span><br><span class="line">        <span class="keyword">let</span> point = (touches <span class="keyword">as</span> <span class="type">NSSet</span>).anyObject()?.locationInView(<span class="keyword">self</span>.mapView)</span><br><span class="line">        </span><br><span class="line"><span class="comment">//        let point = touches.first?.locationInView(self.mapView)</span></span><br><span class="line">        <span class="comment">// 转换位置为经纬度</span></span><br><span class="line">        <span class="keyword">let</span> coordinate = <span class="keyword">self</span>.mapView.convertPoint(point!, toCoordinateFromView: <span class="keyword">self</span>.mapView)</span><br><span class="line">         <span class="comment">// 反地理编码</span></span><br><span class="line">        <span class="keyword">let</span> geocoder = <span class="type">CLGeocoder</span>()</span><br><span class="line">        <span class="keyword">let</span> location = <span class="type">CLLocation</span>(latitude: coordinate.latitude, longitude: coordinate.longitude)</span><br><span class="line">        geocoder .reverseGeocodeLocation(location) &#123; (placemarks, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 创建大头针</span></span><br><span class="line">            <span class="keyword">let</span> annotation = <span class="type">MKPointAnnotation</span>()</span><br><span class="line">            annotation.coordinate = coordinate</span><br><span class="line">            annotation.title = placemarks?.first?.locality</span><br><span class="line">            annotation.subtitle = placemarks?.first?.name</span><br><span class="line">            <span class="keyword">self</span>.mapView.addAnnotation(annotation)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//MARK: 代理方法</span></span><br><span class="line"><span class="comment">// 当添加大头针时调用</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">MKMapViewDelegate</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mapView</span><span class="params">(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation)</span></span> -&gt; <span class="type">MKAnnotationView</span>? &#123;</span><br><span class="line"><span class="comment">//        print(annotation)</span></span><br><span class="line">		<span class="comment">//定位时的原点也是一个大头针，当是定位的原点的大头针时，返回原本的样式</span></span><br><span class="line">        <span class="keyword">if</span> annotation.isKindOfClass(<span class="type">MKUserLocation</span>.<span class="keyword">self</span>) &#123;</span><br><span class="line">            <span class="comment">// return nil 代表大头针的样式由系统控制</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        if ([annotation isKindOfClass:[MKUserLocation class]]) &#123;</span></span><br><span class="line"><span class="comment">//            return nil;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        static NSString *ID = @"annotation";</span></span><br><span class="line">        <span class="comment">// 从缓存池取</span></span><br><span class="line">        <span class="keyword">var</span> annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(<span class="string">"annotation"</span>) <span class="keyword">as</span>? <span class="type">MKPinAnnotationView</span></span><br><span class="line">        <span class="keyword">if</span> annotationView == <span class="literal">nil</span> &#123;</span><br><span class="line">            annotationView = <span class="type">MKPinAnnotationView</span>(annotation: annotation, reuseIdentifier: <span class="string">"annotation"</span>)</span><br><span class="line">            <span class="comment">// 改变大头针颜色 --&gt;iOS9之后的方法</span></span><br><span class="line">            annotationView!.pinTintColor = <span class="type">UIColor</span>.greenColor()</span><br><span class="line">            <span class="comment">// 设定动画</span></span><br><span class="line">            annotationView!.animatesDrop = <span class="literal">true</span></span><br><span class="line">            <span class="comment">// 是否显示标题</span></span><br><span class="line">            annotationView!.canShowCallout = <span class="literal">true</span></span><br><span class="line">            <span class="comment">// 下面三个属性存在的前提是设置了标题</span></span><br><span class="line">            <span class="comment">// 左视图</span></span><br><span class="line">            annotationView!.leftCalloutAccessoryView = <span class="type">UISwitch</span>()</span><br><span class="line">            <span class="comment">// 右视图</span></span><br><span class="line">            annotationView!.rightCalloutAccessoryView = <span class="type">UIButton</span>(type: .<span class="type">ContactAdd</span>)</span><br><span class="line">            <span class="comment">// 中间视图 会覆盖子标题 iOS9之后的方法</span></span><br><span class="line">            annotationView!.detailCalloutAccessoryView = <span class="type">UISwitch</span>()</span><br><span class="line">            <span class="comment">// MKAnnotationView 默认无界面 能显示图片</span></span><br><span class="line">            <span class="comment">// MKPinAnnotationView默认有界面 不能显示图片</span></span><br><span class="line"><span class="comment">//            annotationView.image = UIImage(named: "美工求图啊！！！")</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> annotationView</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> MapKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> mapView: <span class="type">MKMapView</span>!</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> manager:<span class="type">CLLocationManager</span> = <span class="type">CLLocationManager</span>()</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">// 请求用户授权</span></span><br><span class="line">        manager.requestWhenInUseAuthorization()</span><br><span class="line">        <span class="comment">// 设置用户跟踪模式</span></span><br><span class="line">        <span class="keyword">self</span>.mapView.userTrackingMode = .<span class="type">Follow</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> annotation = <span class="type">MKPointAnnotation</span>()</span><br><span class="line">        annotation.coordinate = <span class="type">CLLocationCoordinate2DMake</span>(<span class="number">39</span>, <span class="number">116</span>)</span><br><span class="line">        annotation.title = <span class="string">"我是标题"</span></span><br><span class="line">        annotation.subtitle = <span class="string">"我是子标题"</span></span><br><span class="line">        <span class="keyword">self</span>.mapView.addAnnotation(annotation)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 设置代理</span></span><br><span class="line">        <span class="keyword">self</span>.mapView.delegate = <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">        <span class="comment">// 获取用户点击的位置</span></span><br><span class="line">        <span class="keyword">let</span> point = (touches <span class="keyword">as</span> <span class="type">NSSet</span>).anyObject()?.locationInView(<span class="keyword">self</span>.mapView)</span><br><span class="line">        <span class="comment">// 转换位置为经纬度</span></span><br><span class="line">        <span class="keyword">let</span> coordinate = <span class="keyword">self</span>.mapView.convertPoint(point!, toCoordinateFromView: <span class="keyword">self</span>.mapView)</span><br><span class="line">         <span class="comment">// 反地理编码</span></span><br><span class="line">        <span class="keyword">let</span> geocoder = <span class="type">CLGeocoder</span>()</span><br><span class="line">        <span class="keyword">let</span> location = <span class="type">CLLocation</span>(latitude: coordinate.latitude, longitude: coordinate.longitude)</span><br><span class="line">        geocoder .reverseGeocodeLocation(location) &#123; (placemarks, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 创建大头针</span></span><br><span class="line">            <span class="keyword">let</span> annotation = <span class="type">MKPointAnnotation</span>()</span><br><span class="line">            annotation.coordinate = coordinate</span><br><span class="line">            annotation.title = placemarks?.first?.locality</span><br><span class="line">            annotation.subtitle = placemarks?.first?.name</span><br><span class="line">            <span class="keyword">self</span>.mapView.addAnnotation(annotation)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//MARK: 代理方法</span></span><br><span class="line"><span class="comment">// 当添加大头针时调用</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">MKMapViewDelegate</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mapView</span><span class="params">(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation)</span></span> -&gt; <span class="type">MKAnnotationView</span>? &#123;</span><br><span class="line"><span class="comment">//        print(annotation)</span></span><br><span class="line">		<span class="comment">//定位时的原点也是一个大头针，当是定位的原点的大头针时，返回原本的样式</span></span><br><span class="line">        <span class="keyword">if</span> annotation.isKindOfClass(<span class="type">MKUserLocation</span>.<span class="keyword">self</span>) &#123;</span><br><span class="line">            <span class="comment">// return nil 代表大头针的样式由系统控制</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        if ([annotation isKindOfClass:[MKUserLocation class]]) &#123;</span></span><br><span class="line"><span class="comment">//            return nil;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        static NSString *ID = @"annotation";</span></span><br><span class="line">        <span class="comment">// 从缓存池取</span></span><br><span class="line">        <span class="keyword">var</span> annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(<span class="string">"annotation"</span>) <span class="keyword">as</span>? <span class="type">MKPinAnnotationView</span></span><br><span class="line">        <span class="keyword">if</span> annotationView == <span class="literal">nil</span> &#123;</span><br><span class="line">            annotationView = <span class="type">MKPinAnnotationView</span>(annotation: annotation, reuseIdentifier: <span class="string">"annotation"</span>)</span><br><span class="line">            <span class="comment">// 改变大头针颜色 --&gt;iOS9之后的方法</span></span><br><span class="line">            annotationView!.pinTintColor = <span class="type">UIColor</span>.greenColor()</span><br><span class="line">            <span class="comment">// 设定动画</span></span><br><span class="line">            annotationView!.animatesDrop = <span class="literal">true</span></span><br><span class="line">            <span class="comment">// 是否显示标题</span></span><br><span class="line">            annotationView!.canShowCallout = <span class="literal">true</span></span><br><span class="line">            <span class="comment">// 下面三个属性存在的前提是设置了标题</span></span><br><span class="line">            <span class="comment">// 左视图</span></span><br><span class="line">            annotationView!.leftCalloutAccessoryView = <span class="type">UISwitch</span>()</span><br><span class="line">            <span class="comment">// 右视图</span></span><br><span class="line">            annotationView!.rightCalloutAccessoryView = <span class="type">UIButton</span>(type: .<span class="type">ContactAdd</span>)</span><br><span class="line">            <span class="comment">// 中间视图 会覆盖子标题 iOS9之后的方法</span></span><br><span class="line">            annotationView!.detailCalloutAccessoryView = <span class="type">UISwitch</span>()</span><br><span class="line">            <span class="comment">// MKAnnotationView 默认无界面 能显示图片</span></span><br><span class="line">            <span class="comment">// MKPinAnnotationView默认有界面 不能显示图片</span></span><br><span class="line"><span class="comment">//            annotationView.image = UIImage(named: "美工求图啊！！！")</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> annotationView</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
-    
-    <div>
-      
-        
-      
-    </div>
-
-    <div>
-      
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/地图与定位/" rel="tag">#地图与定位</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/2015/10/19/ibinspectableandibdesignable.html" rel="next" title="@IBInspectable与@IBDesignable">
-                <i class="fa fa-chevron-left"></i> @IBInspectable与@IBDesignable
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2016/02/12/blogbuild.html" rel="prev" title="本博客的搭建详解">
-                本博客的搭建详解 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="/blog/2016/01/15/map.html"
-           data-title="记录定位与地图相关" data-url="http://chaselan.com/blog/2016/01/15/map.html">
-      </div>
     
   </div>
-
-
-        </div>
-        
-          
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/blog/2016/01/15/map.html">记录定位与地图相关</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Chasel An</a></p>
+        <p><span>发布时间:</span>2016-01-15, 20:17:12</p>
+        <p><span>最后更新:</span>2016-06-04, 16:32:05</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/blog/2016/01/15/map.html" title="记录定位与地图相关">http://chaselan.com/blog/2016/01/15/map.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://chaselan.com/blog/2016/01/15/map.html　　作者: Chasel An" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
 
-      
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.png"
-               alt="Chasel An" />
-          <p class="site-author-name" itemprop="name">Chasel An</p>
-          <p class="site-description motion-element" itemprop="description">相遇，相知。</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">18</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
+    <nav id="article-nav">
         
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/ChaselAn" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-github"></i>
-                  
-                  GitHub
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/blog/2016/02/12/blogbuild.html">
+                    本博客的搭建详解
                 </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/2093067257/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="weibo">
-                  
-                    <i class="fa fa-weibo"></i>
-                  
-                  weibo
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/blog/2015/10/19/ibinspectableandibdesignable.html">
+                    @IBInspectable与@IBDesignable
                 </a>
-              </span>
-            
-          
-        </div>
-
+            </div>
         
-        
-
-        
-        
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一次定位"><span class="nav-number">1.</span> <span class="nav-text">一次定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地理编码"><span class="nav-number">2.</span> <span class="nav-text">地理编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反地理编码"><span class="nav-number">3.</span> <span class="nav-text">反地理编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仿iphone自带地图"><span class="nav-number">4.</span> <span class="nav-text">仿iphone自带地图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现定位功能"><span class="nav-number">4.1.</span> <span class="nav-text">实现定位功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加大头针"><span class="nav-number">4.2.</span> <span class="nav-text">添加大头针</span></a></li></ol></li></ol></div>
-            
-          </div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Chasel An</span>
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-        
-
-        
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
+    </nav>
 
   
+</article>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一次定位"><span class="toc-number">1.</span> <span class="toc-text">一次定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#地理编码"><span class="toc-number">2.</span> <span class="toc-text">地理编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反地理编码"><span class="toc-number">3.</span> <span class="toc-text">反地理编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导航"><span class="toc-number">4.</span> <span class="toc-text">导航</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调用系统地图导航"><span class="toc-number">4.1.</span> <span class="toc-text">调用系统地图导航</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导航在自己的App上画线"><span class="toc-number">4.2.</span> <span class="toc-text">导航在自己的App上画线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#仿iphone自带地图"><span class="toc-number">5.</span> <span class="toc-text">仿iphone自带地图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现定位功能"><span class="toc-number">5.1.</span> <span class="toc-text">实现定位功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加大头针"><span class="toc-number">5.2.</span> <span class="toc-text">添加大头针</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
 </script>
 
 
 
 
 
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
-
-
-
-  
-
-  
     
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"chaselan"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
+<div class="share">
     
-  
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"记录定位与地图相关　| ChaselAn's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
 
 
 
 
 
-  
-  
-  
 
-  
 
-  
+    
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/blog/2016/02/12/blogbuild.html" title="上一篇: 本博客的搭建详解">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/blog/2015/10/19/ibinspectableandibdesignable.html" title="下一篇: @IBInspectable与@IBDesignable">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2016/05/04/netknowledge.html">IP、子网掩码、缺省网关/默认网关、DNS、服务器、端口的总结(转)</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/03/20/recordskill.html">记录一些开发中的小技巧（持续更新中）</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/02/12/blogbuild.html">本博客的搭建详解</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/01/15/map.html">记录定位与地图相关</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/10/19/ibinspectableandibdesignable.html">@IBInspectable与@IBDesignable</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/09/06/qqpopmenu.html">仿qq弹出菜单(OC)</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/08/11/runloop.html">对RunLoop的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/08/06/sdwebimage.html">SDWebImage框架分析</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/07/02/tiebaslide.html">仿贴吧侧滑界面(OC)</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/06/28/token.html">对token的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/05/26/postandget.html">一句代码实现POST/GET请求以及多文件上传(OC)</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/05/08/masonry.html">Masonry的简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/04/30/fmdb.html">FMDB框架总结</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2015/04/04/afn.html">AFN的简单使用</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Chasel An
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>
