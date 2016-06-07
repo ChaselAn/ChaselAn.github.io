@@ -171,16 +171,16 @@
             
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/iOS知识库/">
-                    iOS知识库 <span class="right">6 篇</span></a>
+                <a class="no-padding" href="/categories/iOS第三方框架/">
+                    iOS第三方框架 <span class="right">4 篇</span></a>
                 </a>
             </li>
 
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/iOS第三方框架/">
-                    iOS第三方框架 <span class="right">4 篇</span></a>
+                <a class="no-padding" href="/categories/iOS知识库/">
+                    iOS知识库 <span class="right">6 篇</span></a>
                 </a>
             </li>
 
@@ -265,7 +265,7 @@
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Masonry概述"><span class="section table-of-contents-text">Masonry概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Masonry的基础用法"><span class="section table-of-contents-text">Masonry的基础用法</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#添加约束"><span class="section table-of-contents-text">添加约束</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#更新约束"><span class="section table-of-contents-text">更新约束</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#重建约束"><span class="section table-of-contents-text">重建约束</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Masonry的偷懒用法"><span class="section table-of-contents-text">Masonry的偷懒用法</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Masonry概述"><span class="section table-of-contents-text">Masonry概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Masonry的基础用法"><span class="section table-of-contents-text">Masonry的基础用法</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#添加约束"><span class="section table-of-contents-text">添加约束</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#更新约束"><span class="section table-of-contents-text">更新约束</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#重建约束"><span class="section table-of-contents-text">重建约束</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#卸载约束"><span class="section table-of-contents-text">卸载约束</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Masonry的偷懒用法"><span class="section table-of-contents-text">Masonry的偷懒用法</span></a></li></ol>
 </div>
 
 
@@ -295,6 +295,46 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给blueView上下左右分别设置内边距,上下左右都往里缩50</span></span><br><span class="line"><span class="comment">//UIEdgeInsetMake是结构体，是基本数据类型</span></span><br><span class="line"><span class="comment">//mas_equalTo可以将基本数据类型自动转换为对象类型。</span></span><br><span class="line"><span class="comment">//equalTo默认不带装箱功能</span></span><br><span class="line">make.edges.mas_equalTo(<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>));</span><br></pre></td></tr></table></figure>
 <h3 id="更新约束"><a href="#更新约束" class="headerlink" title="更新约束"></a>更新约束</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更新约束"如果之前已经添加过得约束,在此方法中可以重新添加相同属性得约束,会把之前得约束覆盖"</span></span><br><span class="line"><span class="comment">// 如果在此方法设置了新的约束属性,可能会导致约束冲突"在此方法写得约束都会被添加"</span></span><br><span class="line"><span class="comment">// 如果之前缺少约束,在此方法也可以添加缺少得约束</span></span><br><span class="line">[blueView updateConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">	<span class="comment">//之前已经添加过左边的约束，下面代码就会覆盖掉原来的约束</span></span><br><span class="line">    make.left.equalTo(<span class="keyword">self</span>.view.mas_left).offset(<span class="number">150</span>);</span><br><span class="line">    <span class="comment">//如果之前并不缺少width的约束，加上下面一句就会报约束冲突的错误</span></span><br><span class="line">    <span class="comment">//make.width.equalTo(100);</span></span><br><span class="line">    <span class="comment">//之前缺少高度的约束，下面代码会补上高度的约束</span></span><br><span class="line">    make.top.equalTo(<span class="keyword">self</span>.view).offset(<span class="number">50</span>);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 <h3 id="重建约束"><a href="#重建约束" class="headerlink" title="重建约束"></a>重建约束</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果实现了此方法会把此控件之前添加得所有约束全部删除,如果在此方法内部写了约束,可以重新添加约束</span></span><br><span class="line">[blueView remakeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">	make.edges.mas_equalTo(<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">150</span>, <span class="number">50</span>, <span class="number">150</span>, <span class="number">50</span>));</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="卸载约束"><a href="#卸载约束" class="headerlink" title="卸载约束"></a>卸载约束</h3><ul>
+<li>需要卸载约束的条件<ul>
+<li>ViewA的某个约束相对于ViewB更改到相对于ViewC</li>
+<li>ViewA的某个约束相对于View改成具体数值（反之一样）</li>
+</ul>
+</li>
+<li>首先定义两个约束属性</li>
+</ul>
+<pre><code class="objc"><span class="comment">// MASConstraint：约束对象</span>
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) MASConstraint *cons1;
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) MASConstraint *cons2;
+</code></pre>
+<ul>
+<li>在viewDidLoad中设置约束</li>
+</ul>
+<pre><code class="objc"><span class="comment">// 添加view</span>
+    [<span class="keyword">self</span>.view addSubview:view3];
+    <span class="comment">// 添加约束</span>
+    [view3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(view1.mas_bottom).mas_offset(<span class="number">10</span>);
+        <span class="keyword">self</span>.cons1 = make.left.mas_equalTo(view1);
+        <span class="keyword">self</span>.cons3 = make.width.mas_equalTo(<span class="number">100</span>);
+        make.height.mas_equalTo(<span class="number">100</span>);
+<span class="comment">//        make.size.mas_equalTo(CGSizeMake(100, 100));</span>
+    }];
+    <span class="keyword">self</span>.v3 = view3;
+</code></pre>
+<ul>
+<li>touchsBegan中进行约束卸载的test</li>
+</ul>
+<pre><code class="objc">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span>&lt;<span class="built_in">UITouch</span> *&gt; *)touches withEvent:(<span class="built_in">UIEvent</span> *)event{    
+    [<span class="keyword">self</span>.cons3 uninstall];
+    [<span class="keyword">self</span>.cons1 uninstall];
+
+    [<span class="keyword">self</span>.v3 mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(<span class="keyword">self</span>.v2);
+        make.width.mas_equalTo(<span class="keyword">self</span>.v1.mas_width).multipliedBy(<span class="number">0.5</span>);
+    }];    
+}
+</code></pre>
 <h2 id="Masonry的偷懒用法"><a href="#Masonry的偷懒用法" class="headerlink" title="Masonry的偷懒用法"></a>Masonry的偷懒用法</h2><ul>
 <li>通过引入<code>MAS_SHORTHAND</code>和<code>MAS_SHORTHAND_GLOBALS</code>两个宏，来更方便的使用Masonry</li>
 </ul>
