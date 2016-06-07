@@ -4,6 +4,12 @@
   
     
     <entry>
+      <title><![CDATA[硬件相关技术总结（传感器、蓝牙、二维码等）]]></title>
+      <url>http://chaselan.com/blog/2016/06/07/undefined.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[IP、子网掩码、缺省网关/默认网关、DNS、服务器、端口的总结(转)]]></title>
       <url>http://chaselan.com/blog/2016/05/04/netknowledge.html</url>
       <content type="html"><![CDATA[<ul>
@@ -149,7 +155,8 @@
 <h3 id="将一个View添加到最底层"><a href="#将一个View添加到最底层" class="headerlink" title="将一个View添加到最底层"></a>将一个View添加到最底层</h3><ul>
 <li>比如将一个UILabel添加到navigationBar的下面</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加到导航条上</span></span><br><span class="line"><span class="keyword">self</span>.navigationController?.navigationBar.addSubview(label)</span><br><span class="line"><span class="comment">//移动最底层</span></span><br><span class="line"><span class="keyword">self</span>.navigationController?.navigationBar.insertSubview(label, atIndex: <span class="number">0</span>)</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加到导航条上</span></span><br><span class="line"><span class="keyword">self</span>.navigationController?.navigationBar.addSubview(label)</span><br><span class="line"><span class="comment">//移动最底层</span></span><br><span class="line"><span class="keyword">self</span>.navigationController?.navigationBar.insertSubview(label, atIndex: <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="GCD解决多线程对可变对象大量读写操作的数据错乱"><a href="#GCD解决多线程对可变对象大量读写操作的数据错乱" class="headerlink" title="GCD解决多线程对可变对象大量读写操作的数据错乱"></a>GCD解决多线程对可变对象大量读写操作的数据错乱</h3>]]></content>
     </entry>
     
     <entry>
@@ -806,6 +813,12 @@
   
     
     <entry>
+      <title><![CDATA[标签]]></title>
+      <url>http://chaselan.com/categories/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://chaselan.com/about/index.html</url>
       <content type="html"><![CDATA[<ul>
@@ -815,12 +828,6 @@
 <li>其他：2015年毕业于青岛大学软件工程专业。山东青岛人，现居北京。现处于求职阶段。</li>
 </ul>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[标签]]></title>
-      <url>http://chaselan.com/categories/index.html</url>
-      <content type="html"></content>
     </entry>
     
     <entry>
