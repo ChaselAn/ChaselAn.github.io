@@ -1,0 +1,597 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>硬件相关技术总结（传感器、蓝牙、二维码等） | </title>
+    <meta name="author" content="ChaselAn">
+    
+    <meta name="description" content="相遇，相知。">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="硬件相关技术总结（传感器、蓝牙、二维码等）"/>
+    <meta property="og:site_name" content="ChaselAn&#39;s blog"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="ChaselAn&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="green">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">ChaselAn&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav green darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://7xte1z.com1.z0.glb.clouddn.com/avater.png" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">ChaselAn</p>
+                        <p class="desc">相遇，相知。</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav green darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/iOS第三方框架/">
+                    iOS第三方框架 <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/iOS知识库/">
+                    iOS知识库 <span class="right">7 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/iOS代码库/">
+                    iOS代码库 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/随笔/">
+                    随笔 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper green">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/iOS知识库/">iOS知识库</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>硬件相关技术总结（传感器、蓝牙、二维码等）</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2016-03-07T11:36:42.000Z"><a href="/blog/2016/03/07/hardware.html">2016-03-07</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/硬件相关/" class="chip pink lighten-1">硬件相关</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#距离传感器（很少用到）"><span class="section table-of-contents-text">距离传感器（很少用到）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#加速计、磁力计、陀螺仪、计步器"><span class="section table-of-contents-text">加速计、磁力计、陀螺仪、计步器</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#加速计"><span class="section table-of-contents-text">加速计</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#磁力计（很少用到）"><span class="section table-of-contents-text">磁力计（很少用到）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#陀螺仪"><span class="section table-of-contents-text">陀螺仪</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#计步器"><span class="section table-of-contents-text">计步器</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#加速计Demo–控制屏幕小球的移动"><span class="section table-of-contents-text">加速计Demo–控制屏幕小球的移动</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#摇一摇"><span class="section table-of-contents-text">摇一摇</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#蓝牙"><span class="section table-of-contents-text">蓝牙</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h2 id="距离传感器（很少用到）"><a href="#距离传感器（很少用到）" class="headerlink" title="距离传感器（很少用到）"></a>距离传感器（很少用到）</h2><ul>
+<li>距离传感器就是手机上方前置摄像头旁边的小黑点</li>
+<li>最主要的用处就是打电话时的防止误触</li>
+<li>距离传感器不需要导入任何类库就可实现</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">// 打开距离传感器  默认是关闭的</span></span><br><span class="line">        <span class="type">UIDevice</span>.currentDevice().proximityMonitoringEnabled = <span class="literal">true</span></span><br><span class="line">        <span class="comment">// 判断距离传感器是否打开</span></span><br><span class="line">        <span class="type">NSNotificationCenter</span>.defaultCenter().addObserver(<span class="keyword">self</span>, selector: #selector(proximityStateDidChangeNotification), name: <span class="type">UIDeviceProximityStateDidChangeNotification</span>, object: <span class="literal">nil</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 当距离传感器状态改变时调用</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">proximityStateDidChangeNotification</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="type">UIDevice</span>.currentDevice().proximityState == <span class="literal">true</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"有逗比靠近"</span>)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"逗比走了"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="加速计、磁力计、陀螺仪、计步器"><a href="#加速计、磁力计、陀螺仪、计步器" class="headerlink" title="加速计、磁力计、陀螺仪、计步器"></a>加速计、磁力计、陀螺仪、计步器</h2><ul>
+<li>这几个之所以放一起，是因为这几个传感器都要导入CoreMotion库来完成</li>
+</ul>
+<h3 id="加速计"><a href="#加速计" class="headerlink" title="加速计"></a>加速计</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> CoreMotion</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建管理者</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> motionManager = <span class="type">CMMotionManager</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">// 判断硬件是否可用</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">self</span>.motionManager.accelerometerAvailable == <span class="literal">false</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"加速计不可用"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        accelerometerPull()</span><br><span class="line"><span class="comment">//        accelerometerPush()</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(motionManager.accelerometerData!.acceleration.x,motionManager.accelerometerData!.acceleration.y,motionManager.accelerometerData!.acceleration.z)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// pull方式</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">accelerometerPull</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 在使用时才获取数据(touchesBegan时才会获取数据)</span></span><br><span class="line">        <span class="comment">// 开始采集加速计数据</span></span><br><span class="line">        motionManager.startAccelerometerUpdates()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// push方式</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">accelerometerPush</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 一直推送数据</span></span><br><span class="line">        <span class="comment">// 设置采集数据的频率</span></span><br><span class="line">        motionManager.accelerometerUpdateInterval = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 采集数据</span></span><br><span class="line">        motionManager.startAccelerometerUpdatesToQueue(<span class="type">NSOperationQueue</span>.mainQueue()) &#123; (accelerometerData, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">print</span>(accelerometerData!.acceleration.x,accelerometerData!.acceleration.y,accelerometerData!.acceleration.z)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="磁力计（很少用到）"><a href="#磁力计（很少用到）" class="headerlink" title="磁力计（很少用到）"></a>磁力计（很少用到）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> CoreMotion</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 创建管理者</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> motionManager = <span class="type">CMMotionManager</span>()</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">// 判断硬件是否可用</span></span><br><span class="line">        <span class="keyword">if</span> motionManager.magnetometerAvailable == <span class="literal">false</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"磁力计不可用"</span>)</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        magnetometerPush()</span></span><br><span class="line">        magnetometerPull()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">        <span class="comment">// 磁力计打印</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="keyword">self</span>.motionManager.magnetometerData!.magneticField.x,<span class="keyword">self</span>.motionManager.magnetometerData!.magneticField.y,<span class="keyword">self</span>.motionManager.magnetometerData!.magneticField.z)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//pull方式</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">magnetometerPull</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 在使用时才获取数据(touchesBegan时才会获取数据)</span></span><br><span class="line">        <span class="comment">// 开始采集加速计数据</span></span><br><span class="line">        motionManager.startMagnetometerUpdates()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// push方式</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">magnetometerPush</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 一直推送数据</span></span><br><span class="line">        <span class="comment">// 设置采集数据的频率</span></span><br><span class="line">        motionManager.magnetometerUpdateInterval = <span class="number">1</span></span><br><span class="line">        motionManager.startMagnetometerUpdatesToQueue(<span class="type">NSOperationQueue</span>.mainQueue()) &#123; (magnetometerData, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 单位：特斯拉</span></span><br><span class="line">            <span class="built_in">print</span>(magnetometerData!.magneticField.x,magnetometerData!.magneticField.y,magnetometerData!.magneticField.z)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="陀螺仪"><a href="#陀螺仪" class="headerlink" title="陀螺仪"></a>陀螺仪</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> CoreMotion</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 创建管理者</span></span><br><span class="line">    <span class="keyword">var</span> motionManager = <span class="type">CMMotionManager</span>()</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">// 判断硬件是否可用</span></span><br><span class="line">        <span class="keyword">if</span> motionManager.gyroAvailable == <span class="literal">false</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"陀螺仪不可用"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        gyroPull()</span><br><span class="line"><span class="comment">//        gyroPush()</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">        <span class="comment">//陀螺仪打印</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="keyword">self</span>.motionManager.gyroData!.rotationRate.x,<span class="keyword">self</span>.motionManager.gyroData!.rotationRate.y,<span class="keyword">self</span>.motionManager.gyroData!.rotationRate.z)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// pull方式</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">gyroPull</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 在使用时才获取数据(touchesBegan时才会获取数据)</span></span><br><span class="line">        <span class="comment">// 开始采集加速计数据</span></span><br><span class="line">        motionManager.startMagnetometerUpdates()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// push方式</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">gyroPush</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 一直推送数据</span></span><br><span class="line">        <span class="comment">// 设置更新频率</span></span><br><span class="line">        motionManager.gyroUpdateInterval = <span class="number">1</span></span><br><span class="line">        <span class="comment">// 开始采集数据</span></span><br><span class="line">        motionManager.startGyroUpdatesToQueue(<span class="type">NSOperationQueue</span>.mainQueue()) &#123; (gyroData, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">print</span>(gyroData!.rotationRate.x,gyroData!.rotationRate.y,gyroData!.rotationRate.z)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="计步器"><a href="#计步器" class="headerlink" title="计步器"></a>计步器</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> CoreMotion</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 创建计步器对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> pedometer = <span class="type">CMPedometer</span>()</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">// 1.判断计步器是否可用</span></span><br><span class="line">        <span class="keyword">if</span> !<span class="type">CMPedometer</span>.isStepCountingAvailable() &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"计步器不可用"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 开始计步</span></span><br><span class="line">        <span class="comment">// FromDate 从哪个时间开始计步</span></span><br><span class="line">        pedometer.startPedometerUpdatesFromDate(<span class="type">NSDate</span>()) &#123; (pedometerData, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">print</span>(pedometerData?.numberOfSteps)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="加速计Demo–控制屏幕小球的移动"><a href="#加速计Demo–控制屏幕小球的移动" class="headerlink" title="加速计Demo–控制屏幕小球的移动"></a>加速计Demo–控制屏幕小球的移动</h3><ul>
+<li>首先屏幕中有个小球</li>
+<li>可以通过倾斜手机，来控制小球的走向以及速度</li>
+<li>小球碰撞到屏幕边缘会有反弹效果，并且速度会变慢</li>
+<li>效果图如下</li>
+</ul>
+<p><img src="" alt=""></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> CoreMotion</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//storyboard中的小球的图片</span></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> ballView: <span class="type">UIImageView</span>!</span><br><span class="line">    <span class="comment">// 创建管理者</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> motionManager = <span class="type">CMMotionManager</span>()</span><br><span class="line">    <span class="comment">// 小球的速度</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> speed = <span class="type">CGPoint</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="comment">// 判断硬件是否可用</span></span><br><span class="line">        <span class="keyword">if</span> motionManager.accelerometerAvailable == <span class="literal">false</span>&#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"加速计不可用"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// push方式</span></span><br><span class="line">        <span class="comment">// 设置更新频率</span></span><br><span class="line">        motionManager.accelerometerUpdateInterval = <span class="number">1</span> / <span class="number">30.0</span></span><br><span class="line">        <span class="comment">// 开始采集数据</span></span><br><span class="line">        motionManager.startAccelerometerUpdatesToQueue(<span class="type">NSOperationQueue</span>.mainQueue()) &#123; (accelerometerData, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span>&#123;</span><br><span class="line">                <span class="built_in">print</span>(error)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">print</span>(accelerometerData?.acceleration.x, accelerometerData?.acceleration.y)</span><br><span class="line">            <span class="comment">// 目标:改变小球的位置 --&gt;x和y</span></span><br><span class="line">            <span class="comment">// 速度</span></span><br><span class="line">            <span class="keyword">self</span>.speed.x = <span class="keyword">self</span>.speed.x + <span class="type">CGFloat</span>(accelerometerData!.acceleration.x)</span><br><span class="line">            <span class="keyword">self</span>.speed.y = <span class="keyword">self</span>.speed.y - <span class="type">CGFloat</span>(accelerometerData!.acceleration.y)</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">var</span> ballViewFrame = <span class="keyword">self</span>.ballView.frame</span><br><span class="line">            <span class="comment">// 小球要移动的距离</span></span><br><span class="line">            <span class="comment">// 改变小球的frame</span></span><br><span class="line">            ballViewFrame.origin.x = ballViewFrame.origin.x + <span class="keyword">self</span>.speed.x</span><br><span class="line">            ballViewFrame.origin.y = ballViewFrame.origin.y + <span class="keyword">self</span>.speed.y</span><br><span class="line">            <span class="comment">// 屏幕左边</span></span><br><span class="line">            <span class="keyword">if</span> ballViewFrame.origin.x &lt; <span class="number">0</span> &#123;</span><br><span class="line">                ballViewFrame.origin.x = <span class="number">0</span></span><br><span class="line">                <span class="comment">// 让小球弹起来</span></span><br><span class="line">                <span class="comment">// 0.8 :让小球加一个阻力效果</span></span><br><span class="line">                <span class="keyword">self</span>.speed.x = <span class="keyword">self</span>.speed.x * <span class="number">0.8</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 屏幕右边</span></span><br><span class="line">            <span class="keyword">if</span> ballViewFrame.origin.x &gt; <span class="keyword">self</span>.view.bounds.size.width - <span class="keyword">self</span>.ballView.frame.size.width &#123;</span><br><span class="line">                ballViewFrame.origin.x = <span class="keyword">self</span>.view.bounds.size.width - <span class="keyword">self</span>.ballView.frame.size.width</span><br><span class="line">                <span class="keyword">self</span>.speed.x = <span class="keyword">self</span>.speed.x * -<span class="number">0.8</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 屏幕上边</span></span><br><span class="line">            <span class="keyword">if</span> ballViewFrame.origin.y &lt; <span class="number">0</span>&#123;</span><br><span class="line">                ballViewFrame.origin.y = <span class="number">0</span></span><br><span class="line">                <span class="keyword">self</span>.speed.y = <span class="keyword">self</span>.speed.y * -<span class="number">0.8</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 屏幕下边</span></span><br><span class="line">            <span class="keyword">if</span> ballViewFrame.origin.y &gt; <span class="keyword">self</span>.view.bounds.size.height - <span class="keyword">self</span>.ballView.frame.size.height&#123;</span><br><span class="line">                ballViewFrame.origin.y = <span class="keyword">self</span>.view.bounds.size.height - <span class="keyword">self</span>.ballView.frame.size.height</span><br><span class="line">                <span class="keyword">self</span>.speed.y = <span class="keyword">self</span>.speed.y * -<span class="number">0.8</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 给小球位置赋值</span></span><br><span class="line">            <span class="keyword">self</span>.ballView.frame = ballViewFrame</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="摇一摇"><a href="#摇一摇" class="headerlink" title="摇一摇"></a>摇一摇</h2><ul>
+<li>摇一摇也不需要导入任何库就可以实现</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">motionBegan</span><span class="params">(motion: UIEventSubtype, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"开始摇"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">motionEnded</span><span class="params">(motion: UIEventSubtype, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"结束摇"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">motionCancelled</span><span class="params">(motion: UIEventSubtype, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"取消"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="蓝牙"><a href="#蓝牙" class="headerlink" title="蓝牙"></a>蓝牙</h2>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="blog/2016/03/07/hardware.html" data-title="硬件相关技术总结（传感器、蓝牙、二维码等）" data-url="http://chaselan.com/blog/2016/03/07/hardware.html"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'chaselan'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect cyan" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse light-green"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer green darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://weibo.com/2093067257/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/ChaselAn" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016 chaselan.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56654643" charset="UTF-8"></script>
+
+
+
+
+
+</body>
+</html>
