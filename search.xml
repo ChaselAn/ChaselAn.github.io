@@ -4,6 +4,124 @@
   
     
     <entry>
+      <title><![CDATA[100个Swift必备Tips总结（一）]]></title>
+      <url>http://chaselan.com/blog/2016/08/03/100tips1.html</url>
+      <content type="html"><![CDATA[<h2 id="1-柯里化-Currying"><a href="#1-柯里化-Currying" class="headerlink" title="1.柯里化 (Currying)"></a>1.柯里化 (Currying)</h2><ul>
+<li>一种函数式编程的思想，可以看一下喵神翻译的《函数式Swift》。购买地址：<a href="https://store.objccn.io/products/functional-swift/" target="_blank" rel="external">https://store.objccn.io/products/functional-swift/</a></li>
+</ul>
+<h2 id="2-Struct-Mutable的方法"><a href="#2-Struct-Mutable的方法" class="headerlink" title="2.Struct Mutable的方法"></a>2.Struct Mutable的方法</h2><ul>
+<li>Struct出来的变量是Immutable的，想要用一个方法去改变变量里面的值得时候必须要加上一个关键词mutating</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> age : <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> weight : <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> height : <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">gainWeight</span><span class="params">(newWeight: Int)</span></span> &#123;</span><br><span class="line">        weight += newWeight</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xte1z.com1.z0.glb.clouddn.com/100tips1-1.png" alt=""></p>
+<ul>
+<li>以上代码报错的根本原因是weight是Immutable的，所以+=无法在这两个Int上使用，需要在方法之前加上mutating</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> age : <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> weight : <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> height : <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">gainWeight</span><span class="params">(newWeight: Int)</span></span> &#123;</span><br><span class="line">        weight += newWeight</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xte1z.com1.z0.glb.clouddn.com/100tips1-2.png" alt=""></p>
+<h2 id="3-将-protocol-的方法声明为-mutating"><a href="#3-将-protocol-的方法声明为-mutating" class="headerlink" title="3.将 protocol 的方法声明为 mutating"></a>3.将 protocol 的方法声明为 mutating</h2><ul>
+<li>自己写给别人使用的接口中需要多考虑是否使用mutating来修饰方法。</li>
+<li>Swift 的 mutating 关键字修饰方法是为了能在该方法中修改 struct 或是 enum 的变量，所以如果你没在接口方法里写 mutating 的话，别人如果用 struct 或者 enum 来实现这个接口的话，就不能在方法里改变自己的变量了。</li>
+<li>使用class实现接口就不需要考虑mutating，class可以随意更改自己的成员变量。</li>
+</ul>
+<h2 id="4-Sequence（无总结）"><a href="#4-Sequence（无总结）" class="headerlink" title="4.Sequence（无总结）"></a>4.Sequence（无总结）</h2><ul>
+<li>没什么总结的</li>
+</ul>
+<h2 id="5-多元组（Tuple）"><a href="#5-多元组（Tuple）" class="headerlink" title="5.多元组（Tuple）"></a>5.多元组（Tuple）</h2><ul>
+<li>普通的交换输入：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapMe</span>&lt;T&gt;<span class="params">(<span class="keyword">inout</span> a: T, <span class="keyword">inout</span> b: T)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> temp = a</span><br><span class="line">    a = b</span><br><span class="line">    b = temp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>利用多元组的交换输入写法：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapMe</span>&lt;T&gt;<span class="params">(<span class="keyword">inout</span> a: T, <span class="keyword">inout</span> b: T)</span></span> &#123;</span><br><span class="line">    (a,b) = (b,a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-autoclosure-和"><a href="#6-autoclosure-和" class="headerlink" title="6.@autoclosure 和 ??"></a>6.@autoclosure 和 ??</h2><ul>
+<li>@autoclosure 做的事情就是把一句表达式自动地封装成一个闭包 (closure)。这样有时候在语法上看起来就会非常漂亮。</li>
+<li>比如有个方法</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">logIfTrue</span><span class="params">(predicate: <span class="params">()</span></span></span> -&gt; <span class="type">Bool</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> predicate() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"True"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>调用的时候需要这样调用</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logIfTrue(&#123;<span class="number">2</span> &gt; <span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>或者用尾随闭包的方式</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logIfTrue&#123;<span class="number">2</span> &gt; <span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>加上@autoclosure</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">logIfTrue</span><span class="params">(@autoclosure predicate: <span class="params">()</span></span></span> -&gt; <span class="type">Bool</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> predicate() &#123;</span><br><span class="line">        <span class="built_in">println</span>(<span class="string">"True"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这时候我们就可以直接写：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logIfTrue(<span class="number">2</span> &gt; <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>感觉@autoclosure就是让闭包表达的更清楚，@autoclosure 并不支持带有输入参数的写法，也就是说只有形如 () -&gt; T 的参数才能使用这个特性进行简化。</li>
+<li>还有？？的内部实现分析就不总结了</li>
+</ul>
+<h2 id="7-Optional-Chaining（无总结）"><a href="#7-Optional-Chaining（无总结）" class="headerlink" title="7.Optional Chaining（无总结）"></a>7.Optional Chaining（无总结）</h2><ul>
+<li>没什么总结的</li>
+</ul>
+<h2 id="8-操作符"><a href="#8-操作符" class="headerlink" title="8.操作符"></a>8.操作符</h2><h3 id="重载操作符"><a href="#重载操作符" class="headerlink" title="重载操作符"></a>重载操作符</h3><ul>
+<li>比如我们需要一个表示二维向量的数据结构</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Vector2D</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> y = <span class="number">0.0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果想让两个Vector2D相加：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> v1 = <span class="type">Vector2D</span>(x: <span class="number">2.0</span>, y: <span class="number">3.0</span>)</span><br><span class="line"><span class="keyword">let</span> v2 = <span class="type">Vector2D</span>(x: <span class="number">1.0</span>, y: <span class="number">4.0</span>)</span><br><span class="line"><span class="keyword">let</span> v3 = <span class="type">Vector2D</span>(x: v1.x + v2.x, y: v1.y + v2.y)</span><br><span class="line"><span class="comment">// v3 为 &#123;x 3.0, y 7.0&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以重载加号操作符来实现</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> +<span class="params">(<span class="keyword">left</span>: Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> -&gt; <span class="type">Vector2D</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Vector2D</span>(x: <span class="keyword">left</span>.x + <span class="keyword">right</span>.x, y: <span class="keyword">left</span>.y + <span class="keyword">right</span>.y)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> v4 = v1 + v2</span><br><span class="line"><span class="comment">// v4 为 &#123;x 3.0, y 7.0&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="自定义操作符"><a href="#自定义操作符" class="headerlink" title="自定义操作符"></a>自定义操作符</h3><ul>
+<li>自定义一个点积运算的运算符 +*</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> +* <span class="params">(<span class="keyword">left</span>: Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">left</span>.x * <span class="keyword">right</span>.x + <span class="keyword">left</span>.y * <span class="keyword">right</span>.y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>但是编译器会报错，因为没有声明</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> +* &#123;</span><br><span class="line">    <span class="keyword">associativity</span> <span class="keyword">none</span></span><br><span class="line">    <span class="keyword">precedence</span> <span class="number">160</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>infix:</li>
+<li>表示要定义的是一个中位操作符，即前后都是输入；其他的修饰子还包括 prefix 和 postfix，不再赘述；</li>
+<li>associativity:</li>
+<li>定义了结合律，即如果多个同类的操作符顺序出现的计算顺序。比如常见的加法和减法都是 left，就是说多个加法同时出现时按照从左往右的顺序计算 (因为加法满足交换律，所以这个顺序无所谓，但是减法的话计算顺序就很重要了)。点乘的结果是一个 Double，不再会和其他点乘结合使用，所以这里写成 none；</li>
+<li>precedence:</li>
+<li><p>运算的优先级，越高的话越优先进行运算。Swift 中乘法和除法的优先级是 150，加法和减法是 140，这里我们定义点积优先级 160，就是说应该早于普通的乘除进行运算。</p>
+</li>
+<li><p>有了这些之后，我们就可以很简单地进行向量的点积运算了：</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result = v1 +* v2</span><br><span class="line"><span class="comment">// 输出为 14.0”</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>重载和自定义操作符慎用</li>
+</ul>
+<h2 id="9-func的参数修饰"><a href="#9-func的参数修饰" class="headerlink" title="9.func的参数修饰"></a>9.func的参数修饰</h2><ul>
+<li>方法里面不能使用++或者–是因为参数默认是let</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">incrementor</span><span class="params">(<span class="keyword">let</span> variable: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> ++variable</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>把let改成var，就可以使用++或者–了</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">incrementor</span><span class="params">(<span class="keyword">var</span> variable: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> ++variable</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> luckyNumber = <span class="number">7</span></span><br><span class="line"><span class="keyword">let</span> newNumber = incrementor(luckyNumber)</span><br><span class="line"><span class="comment">// newNumber = 8</span></span><br><span class="line"><span class="built_in">print</span>(luckyNumber)</span><br><span class="line"><span class="comment">// luckyNumber 还是 7</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>但是原来的参数还没有变，想要变得话，需要用inout代替var去修饰</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">incrementor</span><span class="params">(<span class="keyword">inout</span> variable: Int)</span></span> &#123;</span><br><span class="line">    ++variable</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>因为在函数内部就更改了值，所以也不需要返回了。调用也要改变为相应的形式，在前面加上 &amp; 符号：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> luckyNumber = <span class="number">7</span></span><br><span class="line">incrementor(&amp;luckyNumber)</span><br><span class="line"><span class="built_in">println</span>(luckyNumber)</span><br><span class="line"><span class="comment">// luckyNumber = 8</span></span><br></pre></td></tr></table></figure>
+<h2 id="10-字面量转换（无总结）"><a href="#10-字面量转换（无总结）" class="headerlink" title="10.字面量转换（无总结）"></a>10.字面量转换（无总结）</h2><ul>
+<li>感觉实际应用不到，暂不总结</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于Runtime（转）]]></title>
       <url>http://chaselan.com/blog/2016/05/24/runtime.html</url>
       <content type="html"><![CDATA[<ul>
@@ -238,7 +356,11 @@
 <h3 id="swift项目名不要与要导入的类库名重名"><a href="#swift项目名不要与要导入的类库名重名" class="headerlink" title="swift项目名不要与要导入的类库名重名"></a>swift项目名不要与要导入的类库名重名</h3><ul>
 <li>swift项目名不要与要导入的类库名重名，不然的话，可能会无法import相关类库</li>
 </ul>
-<h3 id="GCD解决多线程对可变对象大量读写操作的数据错乱"><a href="#GCD解决多线程对可变对象大量读写操作的数据错乱" class="headerlink" title="GCD解决多线程对可变对象大量读写操作的数据错乱"></a>GCD解决多线程对可变对象大量读写操作的数据错乱</h3>]]></content>
+<h3 id="隐藏状态栏的菊花"><a href="#隐藏状态栏的菊花" class="headerlink" title="隐藏状态栏的菊花"></a>隐藏状态栏的菊花</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIApplication</span>.sharedApplication().networkActivityIndicatorVisible = <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h3 id="private（set）"><a href="#private（set）" class="headerlink" title="private（set）"></a>private（set）</h3><ul>
+<li>private（set）修饰的变量只能在本类中被赋值，一般用来修饰接口url等，防止在其他类被调用时被修改</li>
+</ul>
+]]></content>
     </entry>
     
     <entry>

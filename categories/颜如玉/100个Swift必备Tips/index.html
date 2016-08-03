@@ -7,7 +7,7 @@
 
     
 
-    <title>iOS9.0之后的弹出通讯录 | </title>
+    <title>100个Swift必备Tips | </title>
     <meta name="author" content="ChaselAn">
     
     <meta name="description" content="相遇，相知。">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="iOS9.0之后的弹出通讯录"/>
+    
     <meta property="og:site_name" content="ChaselAn&#39;s blog"/>
 
     
@@ -241,103 +241,30 @@
 
     <main>
         <div class="container main-container">
-    <nav class="page-nav hide-on-small-only">
+    
+
+<nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper green">
         <span class="breadcrumb">当前位置（分类目录）</span>
         
-            
-    
-    
-    <a class="breadcrumb" href="/categories/iOS知识库/">iOS知识库</a>
-
 
         
-
+            <a class="breadcrumb" href="/categories/颜如玉/100个Swift必备Tips/">100个Swift必备Tips</a>
         
     </div>
 </nav>
 
-<article>
-    <div class="card">
-        <div class="card-content">
-            
-
-            <div class="article-title">
-                
-    
-        <h1>iOS9.0之后的弹出通讯录</h1>
-    
 
 
-            </div>
-            <time class="pink-link-context" datetime="2015-12-26T11:08:30.000Z"><a href="/blog/2015/12/26/addresslist.html">2015-12-26</a></time>
-
-            
-    <div class="tags-row">
+    <div class="collection mt-0">
         
-            <a href="/tags/通讯录/" class="chip pink lighten-1">通讯录</a>
+            <a href="/blog/2016/08/03/100tips1.html" class="collection-item grey-text text-darken-1">
+                <time datetime="2016-08-03T14:28:57.000Z">2016-08-03</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                100个Swift必备Tips总结（一）
+            </a>
         
     </div>
-
-
-            <div class="toc pink-link-context hide-on-med-and-down">
-    
-</div>
-
-
-            <div class="entry pink-link-context">
-                <ul>
-<li>iOS9.0之前的关于弹出通讯录的<code>AddressBook</code>和<code>AddressBookUI</code>的类库，感觉非常的难用。还好苹果在iOS9.0中增加了一个面向对象的<code>ContactsUI</code>类库，来代替之前的两个类库</li>
-<li>在此记录一下<code>ContactsUI</code>类库的简单使用</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li><code>AppDelegate.swift</code>中导入<code>ContactsUI</code>,判断授权信息</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="comment">// 1.获取授权状态</span></span><br><span class="line">        <span class="keyword">let</span> status = <span class="type">CNContactStore</span>.authorizationStatusForEntityType(<span class="type">CNEntityType</span>.<span class="type">Contacts</span>)</span><br><span class="line">        <span class="comment">// 2.判断授权状态</span></span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         NotDetermined    未授权</span><br><span class="line">         Restricted       受限制</span><br><span class="line">         Denied           被拒绝</span><br><span class="line">         Authorized       已授权</span><br><span class="line">         */</span></span><br><span class="line">        <span class="keyword">if</span> status == <span class="type">CNAuthorizationStatus</span>.<span class="type">NotDetermined</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> contactStore = <span class="type">CNContactStore</span>()</span><br><span class="line">            contactStore.requestAccessForEntityType(.<span class="type">Contacts</span>, completionHandler: &#123; (granted, error) <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">if</span> granted &#123;</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">"授权成功"</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在<code>ViewController.swift</code>中写相关代码</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> ContactsUI</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">        <span class="comment">// 1.创建控制器</span></span><br><span class="line">        <span class="keyword">let</span> contactNC = <span class="type">CNContactPickerViewController</span>()</span><br><span class="line">        <span class="comment">// 2.设置代理</span></span><br><span class="line">        contactNC.delegate = <span class="keyword">self</span>;</span><br><span class="line">        <span class="comment">// 3.弹出控制器</span></span><br><span class="line">        <span class="keyword">self</span>.presentViewController(contactNC, animated: <span class="literal">true</span>, completion: <span class="literal">nil</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>:<span class="title">CNContactPickerDelegate</span></span>&#123;</span><br><span class="line">    <span class="comment">// 点击取消调用</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">contactPickerDidCancel</span><span class="params">(picker: CNContactPickerViewController)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//MARK: 以下两个方法,如果实现了第一个,第二个不会调用</span></span><br><span class="line">    <span class="comment">// 选中联系人时调用</span></span><br><span class="line">    <span class="comment">// contact 选择的联系人数据</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">contactPicker</span><span class="params">(picker: CNContactPickerViewController, didSelectContact contact: CNContact)</span></span> &#123;</span><br><span class="line">        <span class="comment">// 姓名和电话</span></span><br><span class="line">        <span class="comment">// 1. 姓名</span></span><br><span class="line">        <span class="built_in">print</span>(contact.givenName,contact.familyName)</span><br><span class="line">        <span class="comment">// 2.电话</span></span><br><span class="line">        <span class="keyword">for</span> labeledValue <span class="keyword">in</span> contact.phoneNumbers &#123;</span><br><span class="line">            <span class="built_in">print</span>(labeledValue.label)</span><br><span class="line">            <span class="keyword">let</span> number = labeledValue.value <span class="keyword">as</span>! <span class="type">CNPhoneNumber</span></span><br><span class="line">            <span class="built_in">print</span>(number.stringValue)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 选取联系人某一个属性时调用</span></span><br><span class="line"><span class="comment">//    func contactPicker(picker: CNContactPickerViewController, didSelectContactProperty contactProperty: CNContactProperty) &#123;</span></span><br><span class="line"><span class="comment">//        </span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>转载请注明原作者和出处！！！</li>
-</ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-
-
-
-    <section id="comment">
-        <div class="card">
-            <div class="card-content">
-                <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="blog/2015/12/26/addresslist.html" data-title="iOS9.0之后的弹出通讯录" data-url="http://chaselan.com/blog/2015/12/26/addresslist.html"></div>
-
-                <script type="text/javascript">
-                    console.log(document.querySelector('.ds-thread'));
-                    var duoshuoQuery = {
-                        short_name: 'chaselan'
-                    };
-                    (function() {
-                        var ds = document.createElement('script');
-                        ds.type = 'text/javascript';
-                        ds.async = true;
-                        ds.src = (document.location.protocol == 'https:'
-                            ? 'https:'
-                            : 'http:') + '//static.duoshuo.com/embed.js';
-                        ds.charset = 'UTF-8';
-                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-                    })();
-                </script>
-                <!-- Duoshuo Comment END -->
-            </div>
-        </div>
-    </section>
-
 
 
 </div>
