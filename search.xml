@@ -1199,14 +1199,9 @@
     </entry>
     
     <entry>
-      <title><![CDATA[关于]]></title>
-      <url>http://chaselan.com/about/index.html</url>
-      <content type="html"><![CDATA[<ul>
-<li>姓名：安程</li>
-<li>学历：大学本科</li>
-<li>其他：山东青岛人，现居北京。</li>
-</ul>
-]]></content>
+      <title><![CDATA[标签]]></title>
+      <url>http://chaselan.com/tags/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
@@ -1216,9 +1211,14 @@
     </entry>
     
     <entry>
-      <title><![CDATA[标签]]></title>
-      <url>http://chaselan.com/tags/index.html</url>
-      <content type="html"></content>
+      <title><![CDATA[关于]]></title>
+      <url>http://chaselan.com/about/index.html</url>
+      <content type="html"><![CDATA[<ul>
+<li>姓名：安程</li>
+<li>学历：大学本科</li>
+<li>其他：山东青岛人，现居北京。</li>
+</ul>
+]]></content>
     </entry>
     
   
