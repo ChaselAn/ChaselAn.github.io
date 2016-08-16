@@ -171,6 +171,14 @@
             
 
             <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/颜如玉/">
+                    颜如玉 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/iOS知识库/">
                     iOS知识库 <span class="right">9 篇</span></a>
                 </a>
@@ -197,22 +205,6 @@
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/随笔/">
                     随笔 <span class="right">2 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/颜如玉/">
-                    颜如玉 <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/颜如玉/100个Swift必备Tips/">
-                    100个Swift必备Tips <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -288,7 +280,49 @@
                 <div class="article-title">
                     
     
-        <h1 class="green-link-context"><a href="/blog/2016/08/03/100tips1.html">100个Swift必备Tips总结（一）</a></h1>
+        <h1 class="green-link-context"><a href="/blog/2016/08/16/100tips2.html">100个Swift必备Tips总结(Swift新元素)二</a></h1>
+    
+
+
+                </div>
+
+                <time class="pink-link-context" datetime="2016-08-16T14:05:10.000Z"><a href="/blog/2016/08/16/100tips2.html">2016-08-16</a></time>
+
+                
+    <div class="tags-row">
+        
+            <a href="/tags/总结/" class="chip pink lighten-1">总结</a>
+        
+    </div>
+
+
+
+                
+                    <div class="entry pink-link-context">
+                        <h2 id="22-多类型和容器"><a href="#22-多类型和容器" class="headerlink" title="22.多类型和容器"></a>22.多类型和容器</h2><ul>
+<li><code>enum</code>可以关联值</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">IntOrString</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">IntValue</span>(<span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="type">StringValue</span>(<span class="type">String</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> mixed = [<span class="type">IntOrString</span>.<span class="type">IntValue</span>(<span class="number">1</span>),</span><br><span class="line">             <span class="type">IntOrString</span>.<span class="type">StringValue</span>(<span class="string">"two"</span>),</span><br><span class="line">             <span class="type">IntOrString</span>.<span class="type">IntValue</span>(<span class="number">3</span>)]</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> mixed &#123;</span><br><span class="line">    <span class="keyword">switch</span> value &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .<span class="type">IntValue</span>(i):</span><br><span class="line">        <span class="built_in">println</span>(i * <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .<span class="type">StringValue</span>(s):</span><br><span class="line">        <span class="built_in">println</span>(s.capitalizedString)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// Two</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+                    </div>
+                
+            </div>
+
+            
+            <div class="card-action pink-link-context">
+                <a href="blog/2016/08/16/100tips2.html">READ MORE</a>
+            </div>
+            
+        </div>
+</article>
+
+    
+        <article class="simple-article">
+        <div class="card">
+            <div class="card-content">
+                <div class="article-title">
+                    
+    
+        <h1 class="green-link-context"><a href="/blog/2016/08/03/100tips1.html">100个Swift必备Tips总结（Swift新元素）一</a></h1>
     
 
 
@@ -307,12 +341,10 @@
 
                 
                     <div class="entry pink-link-context">
-                        <h2 id="1-柯里化-Currying"><a href="#1-柯里化-Currying" class="headerlink" title="1.柯里化 (Currying)"></a>1.柯里化 (Currying)</h2><ul>
-<li>一种函数式编程的思想，可以看一下喵神翻译的《函数式Swift》。购买地址：<a href="https://store.objccn.io/products/functional-swift/">https://store.objccn.io/products/functional-swift/</a></li>
+                        <h2 id="2-Struct-Mutable的方法"><a href="#2-Struct-Mutable的方法" class="headerlink" title="2.Struct Mutable的方法"></a>2.Struct Mutable的方法</h2><ul>
+<li><code>Struct</code>出来的变量是<code>Immutable</code>的，想要用一个方法去改变变量里面的值得时候必须要加上一个关键词<code>mutating</code></li>
 </ul>
-<h2 id="2-Struct-Mutable的方法"><a href="#2-Struct-Mutable的方法" class="headerlink" title="2.Struct Mutable的方法"></a>2.Struct Mutable的方法</h2><ul>
-<li>Struct出来的变量是Immutable的，想要用一个方法去改变变量里面的值得时候必须要加上一个关键词mutating</li>
-</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> age : <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> weight : <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> height : <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">gainWeight</span><span class="params">(newWeight: Int)</span></span> &#123;</span><br><span class="line">        weight += newWeight</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
                     </div>
                 
             </div>
@@ -673,47 +705,6 @@
             
             <div class="card-action pink-link-context">
                 <a href="blog/2015/10/19/ibinspectableandibdesignable.html">READ MORE</a>
-            </div>
-            
-        </div>
-</article>
-
-    
-        <article class="simple-article">
-        <div class="card">
-            <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="green-link-context"><a href="/blog/2015/09/06/qqpopmenu.html">仿qq弹出菜单(OC)</a></h1>
-    
-
-
-                </div>
-
-                <time class="pink-link-context" datetime="2015-09-06T15:12:10.000Z"><a href="/blog/2015/09/06/qqpopmenu.html">2015-09-06</a></time>
-
-                
-    <div class="tags-row">
-        
-            <a href="/tags/弹出菜单/" class="chip pink lighten-1">弹出菜单</a>
-        
-    </div>
-
-
-
-                
-                    <div class="entry pink-link-context">
-                        <ul>
-<li>仿qq的弹出菜单。就是进入qq之后，消息列表界面右上角的加号按钮的功能。</li>
-</ul>
-                    </div>
-                
-            </div>
-
-            
-            <div class="card-action pink-link-context">
-                <a href="blog/2015/09/06/qqpopmenu.html">READ MORE</a>
             </div>
             
         </div>

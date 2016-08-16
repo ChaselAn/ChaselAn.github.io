@@ -1,0 +1,642 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>100个Swift必备Tips总结(Swift新元素)二 | </title>
+    <meta name="author" content="ChaselAn">
+    
+    <meta name="description" content="相遇，相知。">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="100个Swift必备Tips总结(Swift新元素)二"/>
+    <meta property="og:site_name" content="ChaselAn&#39;s blog"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="ChaselAn&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="green">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">ChaselAn&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav green darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://7xte1z.com1.z0.glb.clouddn.com/avater.png" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">ChaselAn</p>
+                        <p class="desc">相遇，相知。</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav green darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/颜如玉/">
+                    颜如玉 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/iOS知识库/">
+                    iOS知识库 <span class="right">9 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/iOS第三方框架/">
+                    iOS第三方框架 <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/iOS代码库/">
+                    iOS代码库 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/随笔/">
+                    随笔 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper green">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/颜如玉/">颜如玉</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>100个Swift必备Tips总结(Swift新元素)二</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2016-08-16T14:05:10.000Z"><a href="/blog/2016/08/16/100tips2.html">2016-08-16</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/总结/" class="chip pink lighten-1">总结</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#22-多类型和容器"><span class="section table-of-contents-text">22.多类型和容器</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#23-正则表达式"><span class="section table-of-contents-text">23.正则表达式</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#25-…和-lt"><span class="section table-of-contents-text">25. …和..<</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#29-属性观察"><span class="section table-of-contents-text">29.属性观察</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#30-final"><span class="section table-of-contents-text">30.final</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#31-lazy修饰符和lazy方法"><span class="section table-of-contents-text">31.lazy修饰符和lazy方法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#34-多重Optional"><span class="section table-of-contents-text">34.多重Optional</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#35-Optional-Map"><span class="section table-of-contents-text">35.Optional Map</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#37-where和模式匹配"><span class="section table-of-contents-text">37.where和模式匹配</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h2 id="22-多类型和容器"><a href="#22-多类型和容器" class="headerlink" title="22.多类型和容器"></a>22.多类型和容器</h2><ul>
+<li><code>enum</code>可以关联值</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">IntOrString</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">IntValue</span>(<span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="type">StringValue</span>(<span class="type">String</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> mixed = [<span class="type">IntOrString</span>.<span class="type">IntValue</span>(<span class="number">1</span>),</span><br><span class="line">             <span class="type">IntOrString</span>.<span class="type">StringValue</span>(<span class="string">"two"</span>),</span><br><span class="line">             <span class="type">IntOrString</span>.<span class="type">IntValue</span>(<span class="number">3</span>)]</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> mixed &#123;</span><br><span class="line">    <span class="keyword">switch</span> value &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .<span class="type">IntValue</span>(i):</span><br><span class="line">        <span class="built_in">println</span>(i * <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .<span class="type">StringValue</span>(s):</span><br><span class="line">        <span class="built_in">println</span>(s.capitalizedString)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// Two</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="23-正则表达式"><a href="#23-正则表达式" class="headerlink" title="23.正则表达式"></a>23.正则表达式</h2><ul>
+<li>自定义<code>=~</code>操作符，来实现正则的封装</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> =~ &#123;</span><br><span class="line">    <span class="keyword">associativity</span> <span class="keyword">none</span></span><br><span class="line">    <span class="keyword">precedence</span> <span class="number">130</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> =~<span class="params">(lhs: String, rhs: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">try</span> <span class="type">RegexHelper</span>(rhs).match(lhs)</span><br><span class="line">    &#125; <span class="keyword">catch</span> <span class="number">_</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这下我们就可以使用类似于其他语言的正则匹配的方法了：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">"onev@onevcat.com"</span> =~</span><br><span class="line">    <span class="string">"^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]&#123;2,6&#125;)$"</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"有效的邮箱地址"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="25-…和-lt"><a href="#25-…和-lt" class="headerlink" title="25. …和..&lt;"></a>25. …和..&lt;</h2><ul>
+<li>我们除了用<code>...</code>和<code>..&lt;</code>连接数字外，还可以通过<code>...</code>或者<code>..&lt;</code>来连接两个字符串。一个常见的使用场景就是检查某个字符是否是合法的字符。比如想确认一个单词里的全部字符都是小写英文字母的话，可以这么做：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> test = <span class="string">"helLo"</span></span><br><span class="line"><span class="keyword">let</span> interval = <span class="string">"a"</span>...<span class="string">"z"</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">c</span> <span class="keyword">in</span> test.characters &#123;</span><br><span class="line">    <span class="keyword">if</span> !interval.<span class="built_in">contains</span>(<span class="type">String</span>(<span class="built_in">c</span>)) &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(<span class="built_in">c</span>)</span> 不是小写字母"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// L 不是小写字母</span></span><br></pre></td></tr></table></figure>
+<h2 id="29-属性观察"><a href="#29-属性观察" class="headerlink" title="29.属性观察"></a>29.属性观察</h2><ul>
+<li>计算属性中我们可以通过改写<code>set</code>中的内容来达到和<code>willSet</code>及<code>didSet</code>同样的属性观察的目的。如果我们无法改动这个类，又想要通过属性观察做一些事情的话，可能就需要子类化这个类，并且重写它的属性了。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> number :<span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"get"</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">set</span> &#123;<span class="built_in">print</span>(<span class="string">"set"</span>)&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>: <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> number: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span> &#123;<span class="built_in">print</span>(<span class="string">"willSet"</span>)&#125;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;<span class="built_in">print</span>(<span class="string">"didSet"</span>)&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>调用<code>number</code>的<code>set</code>方法可以看到工作的顺序</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b = <span class="type">B</span>()</span><br><span class="line">b.number = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// get</span></span><br><span class="line"><span class="comment">// willSet</span></span><br><span class="line"><span class="comment">// set</span></span><br><span class="line"><span class="comment">// didSet</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>set</code>和对应的属性观察的调用都在我们的预想之中。这里要注意的是<code>get</code>首先被调用了一次。这是因为我们实现了<code>didSet</code>，<code>didSet</code>中会用到<code>oldValue</code>，而这个值需要在整个<code>set</code>动作之前进行获取并存储待用，否则将无法确保正确性。如果我们不实现<code>didSet</code>的话，这次<code>get</code>操作也将不存在。</li>
+</ul>
+<h2 id="30-final"><a href="#30-final" class="headerlink" title="30.final"></a>30.final</h2><ul>
+<li><code>final</code>关键字可以用在<code>class</code>，<code>func</code>或者<code>var</code>前面进行修饰，表示不允许对该内容进行继承或者重写操作。</li>
+<li>给一段代码加上<code>final</code>就意味着编译器向你作出保证，这段代码不会再被修改；同时，这也意味着你认为这段代码已经完备并且没有再被进行继承或重写的必要</li>
+</ul>
+<h2 id="31-lazy修饰符和lazy方法"><a href="#31-lazy修饰符和lazy方法" class="headerlink" title="31.lazy修饰符和lazy方法"></a>31.lazy修饰符和lazy方法</h2><ul>
+<li><code>lazy</code>可以配合像<code>map</code>或是<code>filter</code>这类接受闭包并进行运行的方法一起，让整个行为变成延时进行的。在某些情况下这么做也对性能会有不小的帮助。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = <span class="number">1</span>...<span class="number">3</span></span><br><span class="line"><span class="keyword">let</span> result = data.<span class="built_in">lazy</span>.<span class="built_in">map</span> &#123;</span><br><span class="line">    (i: <span class="type">Int</span>) -&gt; <span class="type">Int</span> <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"正在处理 <span class="subst">\(i)</span>"</span>)</span><br><span class="line">    <span class="keyword">return</span> i * <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"准备访问结果"</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> result &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"操作后结果为 <span class="subst">\(i)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"操作完毕"</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此时的运行结果：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 准备访问结果</span></span><br><span class="line"><span class="comment">// 正在处理 1</span></span><br><span class="line"><span class="comment">// 操作后结果为 2</span></span><br><span class="line"><span class="comment">// 正在处理 2</span></span><br><span class="line"><span class="comment">// 操作后结果为 4</span></span><br><span class="line"><span class="comment">// 正在处理 3</span></span><br><span class="line"><span class="comment">// 操作后结果为 6</span></span><br><span class="line"><span class="comment">// 操作完毕</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于那些不需要完全运行，可能提前退出的情况，使用<code>lazy</code>来进行性能优化效果会非常有效。</li>
+</ul>
+<h2 id="34-多重Optional"><a href="#34-多重Optional" class="headerlink" title="34.多重Optional"></a>34.多重Optional</h2><ul>
+<li>再用<code>lldb</code>调试的时候，可以使用<code>fr v -R</code>命令来打印出变量的未加工过时的信息，就像这样：</li>
+</ul>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(lldb) fr v -R anotherNil</span><br><span class="line">(Swift.<span class="keyword">Optional</span>&lt;Swift.<span class="keyword">Optional</span>&lt;Swift.<span class="keyword">String</span>&gt;&gt;)</span><br><span class="line">    anotherNil = Some &#123;</span><br><span class="line">    ... 中略</span><br><span class="line">&#125;</span><br><span class="line">(lldb) fr v -R literalNil</span><br><span class="line">(Swift.<span class="keyword">Optional</span>&lt;Swift.<span class="keyword">Optional</span>&lt;Swift.<span class="keyword">String</span>&gt;&gt;)</span><br><span class="line">    literalNil = <span class="keyword">None</span> &#123;</span><br><span class="line">    ... 中略</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="35-Optional-Map"><a href="#35-Optional-Map" class="headerlink" title="35.Optional Map"></a>35.Optional Map</h2><ul>
+<li>假设我们有个需求，要将某个<code>Int?</code>乘2。如果这个<code>Int?</code>有值的话，就取出值进行乘2的操作，如果是<code>nil</code>的话就直接将<code>nil</code>赋给结果。</li>
+<li>普通写法：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num: <span class="type">Int</span>? = <span class="number">3</span></span><br><span class="line"><span class="keyword">var</span> result: <span class="type">Int</span>?</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> realNum = num &#123;</span><br><span class="line">    result = realNum * <span class="number">2</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    result = <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>高阶写法：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num: <span class="type">Int</span>? = <span class="number">3</span></span><br><span class="line"><span class="keyword">let</span> result = num.<span class="built_in">map</span> &#123;</span><br><span class="line">    $<span class="number">0</span> * <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// result 为 &#123;Some 6&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="37-where和模式匹配"><a href="#37-where和模式匹配" class="headerlink" title="37.where和模式匹配"></a>37.where和模式匹配</h2><ul>
+<li>首先是<code>switch</code>语句中，我们可以使用<code>where</code>来限定某些条件<code>case</code>：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = [<span class="string">"王小二"</span>,<span class="string">"张三"</span>,<span class="string">"李四"</span>,<span class="string">"王二小"</span>]</span><br><span class="line">name.forEach &#123;</span><br><span class="line">    <span class="keyword">switch</span> $<span class="number">0</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> x <span class="keyword">where</span> x.hasPrefix(<span class="string">"王"</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(x)</span>是笔者本家"</span>)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"你好，<span class="subst">\($<span class="number">0</span>)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line"><span class="comment">// 王小二是笔者本家</span></span><br><span class="line"><span class="comment">// 你好，张三</span></span><br><span class="line"><span class="comment">// 你好，李四</span></span><br><span class="line"><span class="comment">// 王二小是笔者本家</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在<code>if let</code>或者是<code>for</code>中我们也可以使用<code>where</code>来做类似的条件限定：</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num: [<span class="type">Int</span>?] = [<span class="number">48</span>, <span class="number">99</span>, <span class="literal">nil</span>]</span><br><span class="line">num.forEach &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> score = $<span class="number">0</span> <span class="keyword">where</span> score &gt; <span class="number">60</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"及格啦 - <span class="subst">\(score)</span>"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">":("</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line"><span class="comment">// :(</span></span><br><span class="line"><span class="comment">// 及格啦 - 99</span></span><br><span class="line"><span class="comment">// :(</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> score <span class="keyword">in</span> num <span class="keyword">where</span> score &gt; <span class="number">60</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"及格啦 - <span class="subst">\(score)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line"><span class="comment">// 及格啦 - Optional(99)</span></span><br></pre></td></tr></table></figure>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="blog/2016/08/16/100tips2.html" data-title="100个Swift必备Tips总结(Swift新元素)二" data-url="http://chaselan.com/blog/2016/08/16/100tips2.html"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'chaselan'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect cyan" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse light-green"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer green darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://weibo.com/2093067257/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/ChaselAn" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016 chaselan.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56654643" charset="UTF-8"></script>
+
+
+
+
+
+</body>
+</html>
